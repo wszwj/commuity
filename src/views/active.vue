@@ -23,7 +23,7 @@ import VNav from '../components/Nav'
 export default {
   data () {
     return {
-      title: '我的答案',
+      title: '我的动态',
       path: '/about',
       icon: 'icon-shape32',
       items: [

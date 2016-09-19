@@ -49,6 +49,7 @@ body{
   color: #fff;
   text-align: left;
   padding-left: 2.5rem;
+  box-shadow: 0 3px 10px 0 #b3b3b3;
 }
 .bar h2{
   line-height: 2.8;

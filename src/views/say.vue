@@ -122,6 +122,7 @@ export default {
     border-color: #2c3d52;
 }
 #say .message i.icon-word{
+    float: inherit;
     font-style: normal;
     background-color: #999;
     color: #fff;

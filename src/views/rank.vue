@@ -1,5 +1,5 @@
 <template>
-<div class="rank">
+<div id="rank">
   <v-nav :path="path" :title="title" :icon="icon"></v-nav>
   <div class="rank-show"><i class="iconfont icon-shape74"></i></div>
   <div class="row rank-msg">
@@ -47,6 +47,10 @@ export default {
 
 <style>
 @import '../assets/css/style.css';
+#rank .title{
+  box-shadow: none;
+}
+
 .rank-show{
   margin-top: 2rem;
   height: 6rem;
