@@ -32,11 +32,9 @@
         </div>
         <div id="tab2" class="tab">
             <slider :banner="banner"></slider>
-            <div class="category"><i class="iconfont icon-yingyong"></i>按游戏分类查看</div>
+            <div class="category" @cilck="active"><i class="iconfont icon-yingyong"></i>按游戏分类查看</div>
             <div class="type">
-                <ul v-repeat="types">
-                    <li @click="active(type.name)">{{$value}}</li>
-                </ul>
+                <li>{{types}}</li>
             </div>
             <div class="media-box" v-for="item in items">
                 <h4 class="media-title"><a href=""><img src="../assets/img/head.png">{{item.name}}</a>
@@ -61,7 +59,7 @@ export default {
   data () {
     return {
       title: '任务列表',
-      types: ['热门分类', '最新分类', '综合分类'],
+      types: '热门分类',
 
       items: [
         {
@@ -96,10 +94,28 @@ export default {
   },
   methods: {
     active (e) {
-      this.types = ''
-      this.types = {
-        name: e
-      }
+      const buttons1 = [
+        {
+          text: '请选择',
+          label: true
+        },
+        {
+          text: '卖出',
+          bold: true,
+          color: 'danger'
+        },
+        {
+          text: '买入'
+        }
+      ]
+      const buttons2 = [
+        {
+          text: '取消',
+          bg: 'danger'
+        }
+      ]
+      const groups = [buttons1, buttons2]
+      // $.actions(groups)
     }
   }
 }
@@ -217,7 +233,7 @@ export default {
     text-align: center;
     position: fixed;
     z-index: 999;
-    bottom: 5rem;
+    bottom: 1rem;
     left: 1rem;
     border-radius: 50%;
     color: #fff

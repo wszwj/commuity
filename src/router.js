@@ -86,6 +86,16 @@ export default function (router) {
       component (resolve) {
         require(['./views/message'], resolve)
       }
+    },
+    '/gamehome': {
+      component (resolve) {
+        require(['./views/gamehome'], resolve)
+      }
+    },
+    '/test': {
+      component (resolve) {
+        require(['./views/test'], resolve)
+      }
     }
   })
 

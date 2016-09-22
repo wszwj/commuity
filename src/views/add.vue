@@ -152,6 +152,6 @@ export default {
 }
 #add ul li textarea{
     border-bottom: 1px solid #ccc;
-    height: 1rem;
+    height: 15rem;
 }
 </style>

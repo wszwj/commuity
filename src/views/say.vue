@@ -14,7 +14,7 @@
                     <h4 class="media-title"><img src="../assets/img/head.png">{{item.name}}<span>关注了问答</span></h4>
                     <p class="media-title">{{item.title}}</p>
                     <div class="media-show" v-if="isImg(item.img)"><img :src="item.img"></div>
-                    <p class="media-info">{{item.content}}</p>
+                    <p class="media-info">{{item.content}}<span>[查看更多]</span></p>
                     <div class="media-text">
                     <ul class="media-info">
                         <li><i class="iconfont icon-xinshixin"></i>{{item.like}}</li>
@@ -64,7 +64,7 @@ export default {
           id: 1,
           name: '时空酸奶',
           title: '由各种物质组，成的巨型球状天体。叫做星球',
-          content: '由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球。',
+          content: '由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质',
           like: '999k',
           answer: 99,
           good: 23,

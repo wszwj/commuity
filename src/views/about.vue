@@ -20,8 +20,9 @@
                 <p>是是打发打发士大夫打发打发士大夫打发打发士大夫是是打发打发士大夫打发打发士大夫打发打发士大夫</p>
                 <img src="../assets/img/bighead.png">
         </div>
+    </div>
          <div class="del" v-link="{ path: '/home', replace: true}"><i class="iconfont icon-shape16"></i></div>
-        <div class="list-block">
+        <div class="list-block" style="margin-top: 200px;">
         <ul>
           <li class="item-content item-link" v-link="{ path: '/rank', replace: true}">
             <div class="item-media"></div>
@@ -107,13 +108,7 @@
               </li>
             </ul>
           </div>
- </div>
 </div>
-</body>
-<script src="js/vue.min.js"></script>
-<script src="js/jweixin-1.0.0.js"></script>
-<script src="js/sm.min.js"></script>
-<script src="js/zepto.min.js"></script>
 </template>
 <script>
 export default {
@@ -127,7 +122,9 @@ export default {
     background-color: #eff3f9;
 }
 #about .topnav{
-    height: 35%;
+    height: 200px;
+    box-shadow: none;
+    margin-bottom: 10px;
 }
 #about .topnav .top{
     height: 25%;
@@ -201,9 +198,11 @@ export default {
     -webkit-line-clamp: 2;
 }
 .main img{
-    height: 48px;
+    height: 60px;
     float: right;
-    margin: .5rem 0 0 0;
+    position: absolute;
+    top: 140px;
+    right: 1rem;
 }
 .list-block .item-link .item-inner{
     background-image: none;

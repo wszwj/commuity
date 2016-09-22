@@ -13,11 +13,13 @@
           <!--   游戏  -->
           <div id="tab1" class="tab active">
             <div class="row">
-              <div class="follow-game col-50" v-for="item in items">
+              <div class="follow-game col-100" v-for="item in items">
                 <div class="follow-game-img"><img src="../assets/img/bighead.png"></div>
+                <div class="follow-game-title">
+                    <p>{{item.name}}</p><p>{{item.englishName}}</p>
+                </div>
                 <div class="follow-game-desc">
-                    <i class="iconfont icon-xinshixin"></i><span>{{item.num}}k</span><a href="">#{{item.type}}</a>
-                    <p>{{item.name}}</p>
+                    <p>#{{item.type}}</p><i class="iconfont icon-xinshixin"></i><span>{{item.num}}k</span>
                 </div>
               </div>
             </div>
@@ -34,7 +36,7 @@
           <div id="tab3" class="tab"> 
             <div class="row">
                 <div class="follow-user" v-for="user in users">
-                    <img src="../assets/img/head.png"><span>{{user.name}}</span>
+                    <img src="../assets/img/bighead.png"><span>{{user.name}}</span>
                     <div class="follow-tag" >
                         <li class="{{user.color_1}}">{{user.context_1}}</li>
                         <li class="{{user.color_2}}">{{user.context_2}}</li>
@@ -58,61 +60,71 @@ export default {
       items: [
         {
           id: 1,
-          name: '收望先锋',
+          name: '守望先锋',
+          englishName: 'Overwatch',
           type: '射击类',
           num: 12
         },
         {
           id: 2,
-          name: '收望先锋',
+          name: '守望先锋',
+          englishName: 'Overwatch',
           type: '射击类',
           num: 12
         },
         {
           id: 3,
-          name: '收望先锋',
+          name: '守望先锋',
+          englishName: 'Overwatch',
           type: '射击类',
           num: 12
         },
         {
           id: 4,
-          name: '收望先锋',
+          name: '守望先锋',
+          englishName: 'Overwatch',
           type: '射击类',
           num: 12
         },
         {
           id: 5,
-          name: '收望先锋',
+          name: '守望先锋',
+          englishName: 'Overwatch',
           type: '射击类',
           num: 12
         },
         {
           id: 6,
-          name: '收望先锋',
+          name: '守望先锋',
+          englishName: 'Overwatch',
           type: '射击类',
           num: 12
         },
         {
           id: 7,
-          name: '收望先锋',
+          name: '守望先锋',
+          englishName: 'Overwatch',
           type: '射击类',
           num: 12
         },
         {
           id: 8,
-          name: '收望先锋',
+          name: '守望先锋',
+          englishName: 'Overwatch',
           type: '射击类',
           num: 12
         },
         {
           id: 9,
-          name: '收望先锋',
+          name: '守望先锋',
+          englishName: 'Overwatch',
           type: '射击类',
           num: 12
         },
         {
           id: 10,
-          name: '收望先锋',
+          name: '守望先锋',
+          englishName: 'Overwatch',
           type: '射击类',
           num: 12
         }
@@ -138,7 +150,7 @@ export default {
         },
         {
           id: 3,
-          name: '受到收到',
+          name: '受到守到',
           color_1: 'red',
           context_1: 'MVP',
           color_2: 'blue',
@@ -147,7 +159,7 @@ export default {
         },
         {
           id: 4,
-          name: '受到收到',
+          name: '受到守到',
           color_2: 'blue',
           context_2: '发声者'
         },
@@ -172,11 +184,18 @@ export default {
 
 <style>
 @import '../assets/css/style.css';
-
+#follow .content{
+  background-color: #edf1f7;
+}
+#follow .content-block{
+    margin: 2.2rem 0;
+    padding: 0 0.75rem;
+    color: #6d6d72;
+    background-color: #fff;
+}
 #follow .buttons-tab{
     position: fixed;
     width: 100%;
-    background-color: #eff3f9;
     color: #999;
 }
 #follow .buttons-tab .button.active{
@@ -185,23 +204,31 @@ export default {
     border-color: #2c3d52;
 }
 .row .follow-game{
-    border:1px solid #f4f4f4;
     margin-top: 1rem;
 }
 .follow-game-img img{
     padding: .4rem .2rem;
-    width: 40%;
+    width: 20%;
     float: left;
 }
-
+.follow-game-title{
+    margin-left: 1rem;
+    float: left;
+}
+.follow-game-title p{
+    margin: .5rem;
+    color: initial;
+    text-align: center;
+    font-size: 13pt;
+}
 #follow .follow-game-desc i.iconfont{
     color: #333;
     margin:.2rem;
     font-size:16px;
-    vertical-align: middle;
 }
 .follow-game-desc{
-    margin:.4rem 0;
+    margin:.4rem 1rem;
+    float: right;
     font-size: 9pt;
 }
 .follow-game-desc span{
@@ -209,23 +236,23 @@ export default {
     background-color: #d3d1d1;
     color: #fff;
 }
-.follow-game-desc a{
-    padding-left: .2rem;
-}
 .follow-game-desc p{
-    margin: .5rem;
-    font-size: 13pt;
-    float: right;
+    color: #0894ec;
+    text-align: right;
 }
+
 .follow-user{
-    margin: 1rem 1rem 1rem 3rem; 
+    margin: 1rem; 
 }
 .follow-user img{
-    width: 15%;
+    width: 13%;
+    margin-left: 1rem;
 }
 .follow-user span{
-    margin:0 1rem;
+    margin: 0 1rem;
     vertical-align: top;
+    font-size: 12pt;
+    color: initial;
 }
 .follow-tag {
     display: inline-flex;
