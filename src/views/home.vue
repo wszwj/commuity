@@ -32,9 +32,13 @@
         </div>
         <div id="tab2" class="tab">
             <slider :banner="banner"></slider>
-            <div class="category" @cilck="active"><i class="iconfont icon-yingyong"></i>按游戏分类查看</div>
+            <div class="category"><i class="iconfont icon-yingyong"></i>按游戏分类查看</div>
             <div class="type">
-                <li>{{types}}</li>
+                <select>
+                    <option>热门分类</option>
+                    <option>每日分类</option>
+                    <option>最新分类</option>
+                </select>
             </div>
             <div class="media-box" v-for="item in items">
                 <h4 class="media-title"><a href=""><img src="../assets/img/head.png">{{item.name}}</a>
@@ -55,6 +59,8 @@
 </template>
 <script>
 import Slider from '../components/Slider'
+// import $ from 'zepto'
+
 export default {
   data () {
     return {
@@ -91,34 +97,68 @@ export default {
   },
   components: {
     Slider
-  },
-  methods: {
-    active (e) {
-      const buttons1 = [
-        {
-          text: '请选择',
-          label: true
-        },
-        {
-          text: '卖出',
-          bold: true,
-          color: 'danger'
-        },
-        {
-          text: '买入'
-        }
-      ]
-      const buttons2 = [
-        {
-          text: '取消',
-          bg: 'danger'
-        }
-      ]
-      const groups = [buttons1, buttons2]
-      // $.actions(groups)
-    }
   }
+  // methods: {
+  //   onClick: function () {
+  //     const buttons1 = [
+  //       {
+  //         text: '请选择',
+  //         label: true
+  //       },
+  //       {
+  //         text: '热门分类'
+  //       },
+  //       {
+  //         text: '每日分类',
+  //         onClick: function() {
+  //           this.types = '每日分类'
+  //         }
+  //       },
+  //       {
+  //         text: '最新分类'
+  //       }
+  //     ]
+  //     const buttons2 = [
+  //       {
+  //         text: '取消',
+  //         bg: 'danger'
+  //       }
+  //     ]
+  //     const groups = [buttons1, buttons2]
+  //     $.actions(groups)
+  //   }
+  // }
 }
+
+// $(document).on('click', '.category', function () {
+//   const buttons1 = [
+//     {
+//       text: '请选择',
+//       label: true
+//     },
+//     {
+//       text: '热门分类'
+//     },
+//     {
+//       text: '每日分类',
+//       onClick: function() {
+//         this.types = '每日分类'
+//       }
+//     },
+//     {
+//       text: '最新分类'
+//     }
+//   ]
+//   const buttons2 = [
+//     {
+//       text: '取消',
+//       bg: 'danger'
+//     }
+//   ]
+//   const groups = [buttons1, buttons2]
+//   $.actions(groups)
+// })
+
 </script>
 
 <style>
@@ -191,17 +231,7 @@ export default {
     float: left;
     height: 3rem;
 }
-#home .type ul{
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
-#home .type ul li{
-    padding: .2rem 0;
-}
-#home .type ul li:hover{
-    background-color: #ccc;
-}
+
 #home .buttons-tab{
     padding: 0 20% 2%;
     width: 100%;
@@ -281,11 +311,24 @@ ul.media-info li.other i{
 }
 #home .type{
     text-align: center;
-    padding: .5rem 0;
     font-weight: bold;
 }
 #home .type a{
     color: #999;
+}
+#home .type select{
+    background-color: inherit;
+    border: hidden;
+    margin: 0;
+    padding: 2% 41%;
+    appearance: none;
+    -webkit-appearance: none;
+}
+#home .type select option{
+    padding-bottom: 1rem;
+    text-align: center;
+    background-color: #eff3f9;
+    border: 1px solid #eff3f9;
 }
 #home ul.type-info{
     margin: 0;
