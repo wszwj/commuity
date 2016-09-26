@@ -2,16 +2,32 @@ import $ from 'zepto'
 
 export default function (router) {
   router.map({
-    '*': {
-      component (resolve) {
-        require(['./views/welcome'], resolve)
-      }
-    },
+    // '*': {
+    //   component (resolve) {
+    //     require(['./views/welcome'], resolve)
+    //   }
+    // },
     '/': {
       component (resolve) {
         require(['./views/welcome'], resolve)
       }
     },
+    '/regist': {
+      component (resolve) {
+        require(['./views/regist'], resolve)
+      }
+    },
+    '/login': {
+      component (resolve) {
+        require(['./views/login'], resolve)
+      }
+    },
+    '/initial': {
+      component (resolve) {
+        require(['./views/initial'], resolve)
+      }
+    },
+
     '/home': {
       component (resolve) {
         require(['./views/home'], resolve)

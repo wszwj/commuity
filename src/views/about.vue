@@ -238,6 +238,6 @@ export default {
 }
 #about .del i{
     font-size: 18px;
-    line-height: 2.2rem;
+    line-height: 2.5;
 }
 </style>

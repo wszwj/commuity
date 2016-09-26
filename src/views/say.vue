@@ -31,7 +31,7 @@
                 <div class="  media-box" v-for="item in items">
                     <h4 class="media-title"><img src="../assets/img/head.png">{{item.name}}<span>关注了问答</span></h4>
                     <p class="media-title">{{item.title}}</p>
-                    <div class="media-show" v-if="isImg(item.img)"><img :src="item.img"></div>
+                    <div class="media-show" v-if="item.img ? true :false"><img :src="item.img"></div>
                     <p class="media-info">{{item.content}}</p>
                     <div class="media-text">
                     <ul class="media-info">
@@ -96,14 +96,6 @@ export default {
   },
   components: {
     VNav
-  },
-  methods: {
-    isImg (e) {
-      if (e) {
-        return true
-      }
-      return false
-    }
   }
 }
 </script>

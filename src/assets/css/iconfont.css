@@ -1,10 +1,10 @@
 
 @font-face {font-family: "iconfont";
-  src: url('iconfont.eot?t=1474023584'); /* IE9*/
-  src: url('iconfont.eot?t=1474023584#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('iconfont.woff?t=1474023584') format('woff'), /* chrome, firefox */
-  url('iconfont.ttf?t=1474023584') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('iconfont.svg?t=1474023584#iconfont') format('svg'); /* iOS 4.1- */
+  src: url('iconfont.eot?t=1474807515'); /* IE9*/
+  src: url('iconfont.eot?t=1474807515#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1474807515') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1474807515') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1474807515#iconfont') format('svg'); /* iOS 4.1- */
 }
 
 .iconfont {
@@ -15,11 +15,13 @@
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
 }
+.icon-youxiang:before { content: "\e634"; }
 .icon-biaoqian:before { content: "\e613"; }
 .icon-add:before { content: "\e631"; }
 .icon-xinxi:before { content: "\e61c"; }
 .icon-shouji:before { content: "\e600"; }
 .icon-lishi:before { content: "\e626"; }
+.icon-gou:before { content: "\e60e"; }
 .icon-lianxiren01:before { content: "\e601"; }
 .icon-radiowaves:before { content: "\e627"; }
 .icon-shuohua:before { content: "\e603"; }
@@ -28,6 +30,7 @@
 .icon-certificates:before { content: "\e628"; }
 .icon-jinqi:before { content: "\e605"; }
 .icon-iconfontduihua:before { content: "\e62b"; }
+.icon-iconxiangyouxuanzhuan:before { content: "\e639"; }
 .icon-pinglun:before { content: "\e606"; }
 .icon-jinqi1:before { content: "\e607"; }
 .icon-xiangguantuijian:before { content: "\e608"; }
@@ -36,10 +39,10 @@
 .icon-weixin:before { content: "\e609"; }
 .icon-loudou:before { content: "\e632"; }
 .icon-faxian:before { content: "\e60a"; }
+.icon-mima:before { content: "\e633"; }
 .icon-yingyong:before { content: "\e60b"; }
 .icon-daohang:before { content: "\e60c"; }
 .icon-faxian1:before { content: "\e60d"; }
-.icon-youjian:before { content: "\e60e"; }
 .icon-like1:before { content: "\e60f"; }
 .icon-duihua:before { content: "\e62d"; }
 .icon-mangluzhong:before { content: "\e62a"; }

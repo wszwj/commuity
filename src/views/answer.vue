@@ -4,7 +4,7 @@
     <div class="message content">
         <div class="  media-box" v-for="item in items">
             <p class="media-title">{{item.title}}</p>
-            <div class="media-show" v-if="isImg(item.img)"><img :src="item.img"></div>
+            <div class="media-show" v-if="item.img ? true :false"><img :src="item.img"></div>
             <p class="media-info">{{item.content}}<a href="">[查看更多]</a></p>
             <div class="media-text">
             <ul class="media-info">
@@ -52,14 +52,6 @@ export default {
   },
   components: {
     VNav
-  },
-  methods: {
-    isImg (e) {
-      if (e) {
-        return true
-      }
-      return false
-    }
   }
 }
 </script>
