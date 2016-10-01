@@ -4,7 +4,7 @@
     <div class="content">
       <div class="buttons-tab">
         <a href="#tab1" class="tab-link active button">游戏</a>
-        <a href="#tab2" class="tab-link button">发声</a>
+        <a href="#tab2" class="tab-link button"  v-link="{ path: '/add', replace: true}">发声</a>
         <a href="#tab3" class="tab-link button">用户</a>
       </div>
        <div class="content-block">
@@ -22,13 +22,6 @@
                     <p>#{{item.type}}</p><i class="iconfont icon-xinshixin"></i><span>{{item.num}}k</span>
                 </div>
               </div>
-            </div>
-          </div>
-
-          <!--  发声   -->
-          <div id="tab2" class="tab">
-            <div class="content-block">
-              <p>This is tab 2 content</p>
             </div>
           </div>
 

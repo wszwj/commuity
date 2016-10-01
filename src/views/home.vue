@@ -11,21 +11,19 @@
         <a href="#tab2" class="tab-link button">发现</a>
       </div>
     </nav>
-
-<div class="content">
   
   <div class="content">
     <div class="tabs">
     <!-- 关注页面 -->
       <div id="tab1" class="tab active">
-            <div class="media-box" v-for="item in items">
+            <div class="media-box infinite-scroll"  data-distance="100" v-for="item in items">
                 <h4 class="media-title"><img src="../assets/img/head.png">{{item.name}}<span>关注了问答</span></h4>
                 <p class="media-title">{{item.title}}</p>
                 <!-- 展示图 -->
                 <div class="media-show" v-if="item.imgs ? true :false">
                     <img v-for="img in item.imgs" :src="img.url" alt="{{img.alt}}">
                 </div>
-                <p class="media-info">{{item.content}}</p>
+                <p class="media-info" v-if="item.content ? true :false"><span>{{item.content}}</span><a>[查看更多]</a></p>
                 <div class="media-text">
                 <ul class="media-info">
                     <li><i class="iconfont icon-zan"></i>{{item.good}}</li>
@@ -49,20 +47,31 @@
             <!-- 内容列表 -->
             <div class="media-box" v-for="item in items">
                 <h4 class="media-title"><a href=""><img src="../assets/img/head.png">{{item.name}}</a>
-                <span style="float: right;">
+ <!--                <span style="float: right;">
                 <ul class="type-info">
                     <li class="other"><i class="iconfont icon-iconfontduihua"></i>{{item.comment}}</li>
                     <li><i class="iconfont icon-like1"></i>{{item.good}}</li>
                     
-                </ul></span></h4>
+                </ul></span></h4> -->
                 <p class="media-title">{{item.title}}</p>
                 <!-- 展示图 -->
                  <div class="media-show" v-if="item.imgs ? true :false">
                     <img v-for="img in item.imgs" :src="img.url" alt="{{img.alt}}">
                  </div>
-                <p class="media-info">{{item.content}}</p>
+               <p class="media-info" v-if="item.content ? true :false">{{item.content}}</p>
             </div>
+                <div class="media-text">
+                <ul class="media-info">
+                    <li><i class="iconfont icon-zan"></i>{{item.good}}</li>
+                    <li class="other"><i class="iconfont icon-pinglun"></i>{{item.comment}}</li>
+                    <li class="other"><i class="iconfont icon-tuijianzuiduo"></i></li>
+                </ul>
+                </div>
         </div>
+                <!-- 加载提示符 -->
+                <div class="infinite-scroll-preloader">
+                    正在加载<div class="preloader"></div>
+                </div>
         <!-- 操作 -->
         <div class="add" :class="{'hide':isHide}" @click="hide()"><i class="iconfont icon-add"></i></div>
 
@@ -79,7 +88,6 @@
         </div>
     </div>
    </div>
-</div>
 </div>
 </template>
 <script>
@@ -124,6 +132,38 @@ export default {
           content: '由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球。',
           good: 23,
           comment: 123
+        },
+        {
+          id: 4,
+          name: '时空酸奶',
+          title: '由各种物质组，成的巨型球状天体。叫做星球',
+          imgs: [
+            {url: 'static/img/show_1.jpg', alt: 'x'},
+            {url: 'static/img/2.jpg', alt: 'x'},
+            {url: 'static/img/show_1.jpg', alt: 'x'},
+            {url: 'static/img/2.jpg', alt: 'x'}
+          ],
+          good: 23,
+          comment: 123
+        },
+        {
+          id: 5,
+          name: '时空酸奶',
+          title: '由各种物质组，成的巨型球状天体。叫做星球',
+          content: '由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球。',
+          imgs: [
+            {url: 'static/img/index_show.jpg', alt: 'x'}
+          ],
+          good: 23,
+          comment: 123
+        },
+        {
+          id: 6,
+          name: '时空酸奶',
+          title: '由各种物质组，成的巨型球状天体。叫做星球',
+          content: '由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球。',
+          good: 23,
+          comment: 123
         }
       ],
       banner: []
@@ -147,6 +187,13 @@ export default {
     $(document).on('click', '.add', function () {
       $.popup('.popup-about')
     })
+    // 查看更多
+    const p = $('p.media-info')
+    const span = $('p.media-info span')
+    const pWidth = p.width()
+    const num = Math.ceil(pWidth * 2 / 15 - 8)
+    const spanContent = span.html()
+    span.html(spanContent.substr(0, num) + '...')
   },
   components: {
     Slider
@@ -166,7 +213,7 @@ export default {
 }
 
 #home .content{
-    top: 3rem;
+    top: 5.5rem;
     background-color:#eff3f9;
 }
 #home .head{
@@ -202,15 +249,7 @@ export default {
     margin-bottom: 0;
     font-weight: bold;
 }
-#home p.media-info{
-    color: #999;
-    font-size:11pt;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-}
+
 #home .topnav{
     padding: 0;
     text-align: center;
@@ -232,6 +271,7 @@ export default {
 #home .buttons-tab{
     padding: 0 20% 2%;
     width: 100%;
+    height: 2.5rem;
     overflow: hidden;
 }
 
@@ -273,6 +313,7 @@ ul.media-info li.other i{
     vertical-align: middle;
 }
 #home .media-box{
+    margin-top: 5px;
     padding: 0 1rem;
     background-color: #fff;
     border-bottom: 1px solid #eff3f9;

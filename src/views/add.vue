@@ -77,6 +77,17 @@
         </div>
       </div>
     </div>
+<nav class="bar bar-tab">
+      <a class="tab-item external active" href="#">
+  文案
+</a>
+      <a class="tab-item external" href="#">
+  文案
+</a>
+      <a class="tab-item external" href="#">
+  文案
+</a>
+  </nav>
 </div>
 </template>   
 

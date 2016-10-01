@@ -231,7 +231,7 @@ export default {
     text-align: center;
     position: fixed;
     z-index: 999;
-    bottom: 5rem;
+    bottom: 1rem;
     left: 1rem;
     border-radius: 50%;
     color: #fff;

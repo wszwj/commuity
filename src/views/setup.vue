@@ -35,7 +35,7 @@
         </div>
       </li>
       <li>
-        <div class="item-content">
+        <div class="item-content" v-link="{ path: '/blacklist', replace: true}">
             <div class="item-title label"><i class="iconfont icon-mangluzhong"></i>黑名单</div>
             <div class="cell-ft">...</div>
         </div>
@@ -57,7 +57,7 @@
           <li>微信</li>
         </ul>
         <ul class="show">
-          <li><i class="iconfont icon-youjian" style="color: #78b3d7;"></i></li>
+          <li><i class="iconfont icon-xinxi" style="color: #78b3d7;"></i></li>
           <li>邮箱</li>
         </ul>
       </div>
@@ -148,15 +148,16 @@ export default {
     padding: 1rem 0 1.5rem 1rem;
 }
 #setup .item-content{
-  background-color: #fff;
+    background-color: #fff;
 }
 #setup .link{
-  display: inherit;
-  margin-right: 1rem;
+    display: inherit;
+    margin-right: 1rem;
 }
 #setup ul.show i.iconfont{
     font-size: 25px;
     margin:0;
+    -webkit-text-stroke-width:inherit;
 }
 #setup ul.show li{
   text-align: center;

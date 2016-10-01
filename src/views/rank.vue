@@ -124,11 +124,6 @@ export default {
     border-radius: 50%;
     color: #fff;
 }
-#rank .del i,#rank .back i{
-    font-size: 18px;
-    line-height: 2.2rem;
-}
-
 #rank .back{
     height: 45px;
     width: 45px;
@@ -141,6 +136,12 @@ export default {
     border-radius: 50%;
     color: #fff;
 }
+#rank .del i,#rank .back i{
+    font-size: 18px;
+    line-height: 2.2rem;
+}
+
+
 #rank .rank-method{
     text-align: center;
     padding: 1rem;

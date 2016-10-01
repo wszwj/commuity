@@ -82,14 +82,17 @@ li.blue{
     margin-bottom: .5rem;
     font-weight: bold;
 }
-.message p.media-info{
+.media-box p.media-info{
     color: #999;
-    font-size:11pt;
+    font-size:15px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
+}
+.media-box p.media-info a{
+  margin-left: .5rem;
 }
 .message ul.media-info{
     text-align: right;
