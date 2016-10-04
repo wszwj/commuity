@@ -36,7 +36,7 @@
                     </div>
                   </div>
                 </li>
-                <li><textarea></textarea></li>
+                <li><div class="textarea" contenteditable="true"><br /></div></li>
                </ul> 
               </div>
             </div>  
@@ -69,7 +69,7 @@
                     </div>
                   </div>
                 </li>
-                <li><textarea></textarea></li>
+                <li><div class="textarea" contenteditable="true"><br /></div></li>
                </ul> 
               </div>
             </div>  
@@ -77,17 +77,21 @@
         </div>
       </div>
     </div>
-<nav class="bar bar-tab">
-      <a class="tab-item external active" href="#">
-  文案
-</a>
-      <a class="tab-item external" href="#">
-  文案
-</a>
-      <a class="tab-item external" href="#">
-  文案
-</a>
-  </nav>
+    <nav class="bar bar-tab">
+    <div class="bar-left">
+      <i class="iconfont icon-at"></i>
+      <i class="iconfont icon-shape1" style="float: right;margin-right: .5rem;"></i>      
+    </div>
+
+    <div class="bar-right">
+      发布<i class="iconfont icon-fabu"></i>
+    </div>
+
+    <div class="bar-center">
+      <input type="text">
+    </div>      
+      
+    </nav>
 </div>
 </template>   
 
@@ -123,7 +127,12 @@ export default {
     top: 1px;
     z-index: 999;
 }
-
+#add .bar-nav ~ .content{
+  height: 80%;
+}
+#add .title{
+  box-shadow: none;
+}
 #add .list-block ul:before,#add .buttons-tab:after,#add .list-block ul:after,#add .list-block .item-inner:after{
   background-color: inherit;
 }
@@ -159,10 +168,52 @@ export default {
 }
 #add ul li input{
     font-size: 11pt;
-    text-align: right;
+
+}
+#add ul li input::placeholder{
+    text-align: right;  
 }
 #add ul li textarea{
     border-bottom: 1px solid #ccc;
-    height: 15rem;
+    height: 1rem;
+}
+
+#add .textarea{
+    width: 90%; 
+    margin-left: 5%; 
+    outline: 0; 
+    border-bottom: 1px solid #a0b3d6; 
+    line-height: 150%;
+}
+
+#add .bar-left{
+  float: left;
+  width: 30%;
+}
+#add .bar .bar-center{
+  float: left;
+  width: 45%;
+  line-height: 2;
+}
+#add .bar .bar-right{
+    float: right;
+    width: 25%;
+    color: #b5b5b5;
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+#add .bar .bar-right i{
+  vertical-align: middle;
+}
+#add .bar-tab{
+    padding: 10px 2rem;
+    box-shadow: 0 -3px 10px 0 #b3b3b3;
+}
+#add .bar-tab input{
+  width: 40%;
+  border:hidden;
+}
+#add .bar-tab .iconfont{
+    color: #b5b5b5;
 }
 </style>

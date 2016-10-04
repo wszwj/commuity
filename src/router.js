@@ -108,6 +108,11 @@ export default function (router) {
         require(['./views/gamehome'], resolve)
       }
     },
+    '/ask': {
+      component (resolve) {
+        require(['./views/ask'], resolve)
+      }
+    },
     '/blacklist': {
       component (resolve) {
         require(['./views/blacklist'], resolve)

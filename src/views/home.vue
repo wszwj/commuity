@@ -3,7 +3,6 @@
     <!-- 导航 -->
     <nav class="topnav bar bar-nav">
         <div class="logo"><img src="../assets/img/bigLogo.jpg"></div>
-        <a href=""></a>
         <div class="head"><a v-link="{ path: '/about', replace: true}"><img src="../assets/img/head.png"><span>·</span></a></div>
         <div class="rightIcon" v-link="{ path: '/search', replace: true}"><i class="iconfont icon-sou"></i></div>
       <div class="buttons-tab">
@@ -47,12 +46,6 @@
             <!-- 内容列表 -->
             <div class="media-box" v-for="item in items">
                 <h4 class="media-title"><a href=""><img src="../assets/img/head.png">{{item.name}}</a>
- <!--                <span style="float: right;">
-                <ul class="type-info">
-                    <li class="other"><i class="iconfont icon-iconfontduihua"></i>{{item.comment}}</li>
-                    <li><i class="iconfont icon-like1"></i>{{item.good}}</li>
-                    
-                </ul></span></h4> -->
                 <p class="media-title">{{item.title}}</p>
                 <!-- 展示图 -->
                  <div class="media-show" v-if="item.imgs ? true :false">

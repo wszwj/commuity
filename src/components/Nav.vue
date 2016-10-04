@@ -1,6 +1,7 @@
 <template>
   <nav class="bar bar-nav">
     <h1 class="title" v-text="title"></h1>
+    <span v-text="subtitle"></span>
     <a class="button button-link button-nav pull-left"
       v-link="{path: path, replace: true}">
       <i class="iconfont" :class="icon"></i>
@@ -13,6 +14,7 @@
 export default {
   props: {
     title: '',
+    subtitle: '',
     path: '',
     icon: '',
     add: [
@@ -50,6 +52,12 @@ body{
   text-align: left;
   padding-left: 2.5rem;
   box-shadow: 0 3px 10px 0 #b3b3b3;
+}
+.bar>span{
+    position: fixed;
+    margin: .6rem 6rem 0;
+    color: #fff;
+    font-size: .7rem;
 }
 .bar h2{
   line-height: 2.8;

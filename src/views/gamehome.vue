@@ -37,7 +37,7 @@
          <!-- 栏目 -->
          <div class="row" v-for="item in items_1">
             <div class="col-50 col-left"><i class="iconfont icon-shape14"></i>{{item.title}}</div>
-            <div class="col-50 col-right" v-for="state in item.states" :class="{'col-after':state.isClass}"><a>{{state.name}}</a></div>
+            <div class="col-50 col-right" v-for="state in item.states" @click="ask(state.isClass)" :class="{'col-after':state.isClass}"><a>{{state.name}}</a></div>
             <div class="col-33" v-for="list in item.lists">
                 <ul>
                     <li><img :src=list.img alt="{{list.name}}"></li>
@@ -279,6 +279,13 @@ export default {
     const num = Math.ceil(pWidth * 2 / 15 - 9)
     const spanContent = span.html()
     span.html(spanContent.substr(0, num) + '...')
+  },
+  methods: {
+    ask: function(event) {
+      if (!event) {
+        this.$route.router.go('./ask')
+      }
+    }
   }
 }
 </script>
