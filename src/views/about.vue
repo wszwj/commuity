@@ -21,7 +21,9 @@
                 <img src="../assets/img/bighead.png">
         </div>
     </div>
-         <div class="del" v-link="{ path: '/home', replace: true}"><i class="iconfont icon-shape16"></i></div>
+       
+    <div class="del" v-link="{ path: '/about', replace: true}"><i class="iconfont icon-shape16"></i></div>
+    <div class="back" v-link="{ path: '/about', replace: true}"><i class="iconfont icon-shape32"></i></div>
         <div class="list-block" style="margin-top: 200px;">
         <ul>
           <li class="item-content item-link" v-link="{ path: '/rank', replace: true}">
@@ -156,20 +158,14 @@ export default {
     font-size: .5rem;
     color: #999;
 }
-.main li.red{
+.main li.red,.main li.blue{
     width: 50px;
     padding: 0 .2rem;
     margin-right: .3rem;
     text-align: center;
     color: #fff;
 }
-.main li.blue{
-    width: 50px;
-    padding: 0 .2rem;
-    margin-right: .3rem;
-    text-align: center;
-    color: #fff;
-}
+
 .media-desc{
     margin-bottom: .5rem;
 }
@@ -224,20 +220,5 @@ export default {
     background-color: inherit;
 }
 
-#about .del{
-    height: 45px;
-    width: 45px;
-    background-color: rgba(116, 126, 140, 0.89);
-    text-align: center;
-    position: fixed;
-    z-index: 999;
-    bottom: 1rem;
-    left: 1rem;
-    border-radius: 50%;
-    color: #fff;
-}
-#about .del i{
-    font-size: 18px;
-    line-height: 2.5;
-}
+
 </style>

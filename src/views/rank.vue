@@ -112,7 +112,7 @@ export default {
 .rank-info-last{
   border-bottom: none;
 }
-#rank .del{
+/*#rank .del{
     height: 45px;
     width: 45px;
     background-color: rgba(116, 126, 140, 0.89);
@@ -145,5 +145,5 @@ export default {
 #rank .rank-method{
     text-align: center;
     padding: 1rem;
-}
+}*/
 </style>

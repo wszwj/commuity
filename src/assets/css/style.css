@@ -8,9 +8,14 @@ li{
 li.red{
   background-color: #e86443;
 }
-
+li.green{
+  background-color: #56bc8a;
+}
 li.blue{
   background-color: #529ecc; 
+}
+li.default{
+    background-color: #ccc;
 }
 
 @font-face {
@@ -142,4 +147,41 @@ li.blue{
     height: 22px;
     color: #999;
     font-size: 11pt;
+}
+
+
+/*按钮*/
+.del{
+    height: 45px;
+    width: 45px;
+    background-color: rgba(116, 126, 140, 0.89);
+    text-align: center;
+    position: fixed;
+    z-index: 999;
+    bottom: 5rem;
+    left: 1rem;
+    border-radius: 50%;
+    color: #fff;
+}
+.back{
+    height: 45px;
+    width: 45px;
+    background-color: rgba(116, 126, 140, 0.89);
+    text-align: center;
+    position: fixed;
+    z-index: 999;
+    bottom: 2rem;
+    left: 1rem;
+    border-radius: 50%;
+    color: #fff;
+}
+.del i,.back i{
+    font-size: 18px;
+    line-height: 2.2rem;
+}
+
+
+.rank-method{
+    text-align: center;
+    padding: 1rem;
 }

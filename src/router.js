@@ -53,6 +53,16 @@ export default function (router) {
         require(['./views/about'], resolve)
       }
     },
+    '/about-other': {
+      component (resolve) {
+        require(['./views/about-other'], resolve)
+      }
+    },
+    '/about-game': {
+      component (resolve) {
+        require(['./views/about-game'], resolve)
+      }
+    },
     '/follow': {
       component (resolve) {
         require(['./views/follow'], resolve)
@@ -116,6 +126,11 @@ export default function (router) {
     '/blacklist': {
       component (resolve) {
         require(['./views/blacklist'], resolve)
+      }
+    },
+    '/details/answer': {
+      component (resolve) {
+        require(['./views/details/answer'], resolve)
       }
     },
     '/test': {

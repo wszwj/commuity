@@ -1,5 +1,5 @@
 <template>
-<div id="about-other">
+<div id="about-game">
     <v-nav :path="path" :title="title" :icon="icon"  :add="add" :button="button"></v-nav>
     <div class="more-click"  @click="more()"></div>
     <div class="more"  :class="{'show':isShow}">
@@ -12,9 +12,9 @@
     <div class="content-block main" style="margin-top: 2.2rem;">
         <img src="../assets/img/bighead.png">
         <ul>
-            <li class="default rank">普通玩家</li>
-            <li><h3>阿萨</h3></li>
-            <li><p>TA和你一样啊飒飒达到速度的速度速度速度速度速度都是游戏爱好者。</p></li>
+            <li class="green rank">运营商</li>
+            <li><h3>网易游戏</h3></li>
+            <li><p>TA和你一样都是游戏爱好者。</p></li>
         </ul>
     </div>
     <div class="del" v-link="{ path: '/about', replace: true}"><i class="iconfont icon-shape16"></i></div>
@@ -140,10 +140,10 @@ export default {
 
 <style>
 @import '../assets/css/style.css';
-#about-other{
+#about-game{
     background-color: #eff3f9;
 }
-/*more*/
+
 .more-click{
     position: fixed;
     width: 2rem;
@@ -177,33 +177,31 @@ export default {
     display: block;
 }
 
-#about-other .main{
+#about-game .main{
     background-color: #fff;
     height: 8rem;
     margin-bottom: 5px;
 }
-#about-other .main img{
+#about-game .main img{
     margin: 5% 0 0 5%;
     width: 25%;
 }
-#about-other .main ul{
+#about-game .main ul{
     margin-top: 5%;
     padding-left: 0;
     float: right;
     width: 60%;
     font-size: .5rem;
 }
-#about-other .main ul h3{
+#about-game .main ul h3{
     font-size: .8rem;
 }
-#about-other .main ul p{
+#about-game .main ul p{
     font-size: .6rem;
-    color: #ccc;
+    color: #ccc
 }
-
-/*****************rank*******************/
-#about-other .main li.rank{
-    width: 60px;
+#about-game .main li.rank{
+    width: 50px;
     padding: 0 .2rem;
     margin-right: .3rem;
     text-align: center;
@@ -225,7 +223,7 @@ export default {
     margin: .3rem .5rem 0 .1rem;
     font-size: 11pt;
 }
-#about-other .list-block .item-inner:after{
+#about-game .list-block .item-inner:after{
     background-color: inherit;
 }
 

@@ -80,16 +80,12 @@
     <nav class="bar bar-tab">
     <div class="bar-left">
       <i class="iconfont icon-at"></i>
-      <i class="iconfont icon-shape1" style="float: right;margin-right: .5rem;"></i>      
+      <i class="iconfont icon-shape1" style="margin-left: 1rem;"></i>      
     </div>
 
     <div class="bar-right">
       发布<i class="iconfont icon-fabu"></i>
-    </div>
-
-    <div class="bar-center">
-      <input type="text">
-    </div>      
+    </div>  
       
     </nav>
 </div>
@@ -188,22 +184,17 @@ export default {
 
 #add .bar-left{
   float: left;
-  width: 30%;
 }
-#add .bar .bar-center{
-  float: left;
-  width: 45%;
-  line-height: 2;
-}
+
 #add .bar .bar-right{
     float: right;
-    width: 25%;
     color: #b5b5b5;
     font-size: 15px;
     letter-spacing: 2px;
 }
 #add .bar .bar-right i{
-  vertical-align: middle;
+    vertical-align: middle;
+    margin-left: .5rem;
 }
 #add .bar-tab{
     padding: 10px 2rem;
