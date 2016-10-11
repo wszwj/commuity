@@ -133,6 +133,11 @@ export default function (router) {
         require(['./views/details/answer'], resolve)
       }
     },
+    '/details/suggest': {
+      component (resolve) {
+        require(['./views/details/suggest'], resolve)
+      }
+    },
     '/test': {
       component (resolve) {
         require(['./views/test'], resolve)

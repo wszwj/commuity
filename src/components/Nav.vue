@@ -71,7 +71,7 @@ body{
 .bar a.button .iconfont {
   width: 2rem;
   color: #fff;
-  font-size: 16px;
+  font-size: 21px;
   margin: 0 .5rem;
 }
 /*标题*/
@@ -104,9 +104,9 @@ body{
 }
 .bar a.button span{
     margin: 0 .5rem 0 -.6rem;
-    vertical-align: top;
     color: #fff;
-    font-size: .7rem;
+    font-size: 0.65rem;
+    vertical-align: bottom;
 }
 .bar h2{
   line-height: 2.8;

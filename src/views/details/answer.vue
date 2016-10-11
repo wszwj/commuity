@@ -2,49 +2,49 @@
 <div id="info">
     <v-nav :path="path" :title="title" :num="num" :subtitle="subtitle" :word="word" :add="add"></v-nav>
     <div class="content">
-      <div class="content-top">
+      <div class="content-top" v-for="head in head">
         <div class="head">
           <div class="head-left">
-            <span>魔兽世界</span>
-            <a>#服务器</a>
-            <a>#英雄</a>
+            <span>{{head.game}}</span>
+            <a v-for="tag in head.tag">#{{tag}}</a>           
           </div>
           <div class="head-right">
             <i class="iconfont icon-shape73"></i>
             <i class="iconfont icon-duihua"></i>
-            <span>84</span>
+            <span>{{head.review}}</span>
           </div>
         </div>
         <div class="media-box content-block">
-            <p class="media-title">由各种物质组，成的巨型球状天体。叫做星球</p>
-            <p class="media-info"><span>由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种...</span><a>[查看更多]</a></p>
+            <p class="media-title">{{head.title}}</p>
+            <p class="media-info"><span>{{head.content}}</span><a>[查看更多]</a></p>
       </div>
-      <div class="list-content">
+      </div>
+      <div class="list-content" v-for="list in list">
         <div class="list-show">
         <ul>
-          <li><img src="../../assets/img/head.png"></li>
-          <li class="hot">+1</li>
-          <li>6k</li>
+          <li><img :src="list.avatar"></li>
+          <li class="hot">+{{list.add}}</li>
+          <li>{{list.num}}</li>
         </ul>
         </div>
         <div class="list-body">
-          <div class="list-title"><h3>住宅市场</h3><span>MVP</span></div>
-          <div class="list-mark"><i class="iconfont icon-jinqi1"></i>推荐答案</div>
-          <p>的发动机发动机发家里的发生纠纷了就打算离开房间楼上的房间监实打实大苏打盛大的</p>
+          <div class="list-title"><h3>{{list.title}}</h3><span :class="list.color">{{list.rank}}</span></div>
+          <div class="list-mark" v-if="list.recommend"><i class="iconfont icon-jinqi"></i>推荐答案</div>
+          <p>{{list.content}}</p>
         </div>
         <div class="list-more">
           <i class="iconfont icon-duihua"></i>
-          <span>83</span>
+          <span>{{list.review}}</span>
           <i class="iconfont icon-more"></i>
         </div>
       </div>
-    </div>
+    
 
 </div>
 </template>
 <script>
 import VNav from '../../components/Nav'
-// import $ from 'zepto'
+import $ from 'zepto'
 export default {
   data () {
     return {
@@ -63,10 +63,71 @@ export default {
           name: 'icon-shape73',
           path: ''
         }
+      ],
+      head: [
+        {
+          game: '魔兽世界',
+          tag: ['服务器', '英雄'],
+          title: '由各种物质组，成的巨型球状天体。叫做星球',
+          content: '由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种',
+          review: 93
+        }
+      ],
+      list: [
+        {
+          title: '中心获悉',
+          avatar: require('../../assets/img/head.png'),
+          rank: 'MVP',
+          color: 'red',
+          content: '撒大苏打实打实受到收到实打实打算第三代撒大苏打撒实打实打算实打实打算受到收到是多少',
+          recommend: true,
+          review: 93,
+          add: 1,
+          num: '6k'
+        },
+        {
+          title: '暴雪',
+          avatar: require('../../assets/img/head.png'),
+          rank: '开发商',
+          color: 'deongaree',
+          content: '撒大苏打实打实受到收到实打实打算第三代撒大苏打撒实打实打算实打实打算受到收到是多少',
+          recommend: true,
+          review: 93,
+          add: 1,
+          num: '6k'
+        },
+        {
+          title: '速度',
+          avatar: require('../../assets/img/head.png'),
+          rank: '发声者',
+          color: 'blue',
+          content: '撒大苏打实打实受到收到实打实打算第三代撒大苏打撒实打实打算实打实打算受到收到是多少',
+          review: 93,
+          add: 1,
+          num: '6k'
+        },
+        {
+          title: '中心获悉',
+          avatar: require('../../assets/img/head.png'),
+          rank: '发声者',
+          color: 'blue',
+          content: '撒大苏打实打实受到收到实打实打算第三代撒大苏打撒实打实打算实打实打算受到收到是多少',
+          review: 93,
+          add: 1,
+          num: '6k'
+        }
       ]
     }
   },
-
+  ready: function() {
+    // 查看更多
+    const p = $('p.media-info')
+    const span = $('p.media-info span')
+    const pWidth = p.width()
+    const num = Math.ceil(pWidth * 2 / 15 - 8)
+    const spanContent = span.html()
+    span.html(spanContent.substr(0, num) + '...')
+  },
   components: {
     VNav
   }
@@ -83,7 +144,7 @@ export default {
   color: #afafaf
 }
 #info a.button i.icon-duihua{
-  font-size: 25px;
+  font-size: 24px;
 }
 
 
@@ -117,15 +178,19 @@ export default {
 }
 #info .head-right span{
   color: #ccc;
+  vertical-align: top;
 }
 #info .media-box{
-  margin-bottom: 0;
+  margin: 0;
   color: initial;
   border-bottom: 5px solid #eff3f9;
 }
+#info .media-box p.media-title{
+  margin: .5rem 0;
+}
 #info .list-content{
-  padding: .5rem 1.5rem;
-  height: 7rem;
+  padding: 1rem 1.5rem;
+  height: 7.5rem;
   border-bottom: 1px solid #ccc;
 }
 #info .list-content .list-show{
@@ -160,17 +225,21 @@ export default {
   float: left;
 }
 #info .list-body .list-title h3{
-  margin: 0;
-  float: left;
+    margin: 0;
+    float: left;
+    font-size: .85rem;
+    font-weight: inherit;
+    color: #000;
+    line-height: 1.75;
 }
 #info .list-body .list-title span{
     width: 3rem;
     margin-left: 5px;
-    padding: .1rem .3rem;
+    font-weight: lighter;
+    padding: 1px 2px;
     text-align: center;
-    font-size: .5rem;
+    font-size: 9pt;
     color: #fff;
-    background-color: red;
 }
 #info .list-body .list-mark{
   float: right;
@@ -178,12 +247,14 @@ export default {
   font-size: .75rem;
 }
 #info .list-body .list-mark i{
+    padding-right: 5px;
     vertical-align: middle;
+    font-size: .75rem;
     color: #f2992e;
 }
 #info .list-body p{
     margin: 2rem 0 .5rem;
-    font-size: .75rem;
+    font-size: 12pt;
     color: #999;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -194,7 +265,7 @@ export default {
 #info .list-content .list-more{
     float: right;
     color: #999;
-    font-size: .75rem;
+    font-size: 12pt;
 }
 #info .list-content .list-more span{
   vertical-align: text-bottom;
@@ -202,5 +273,6 @@ export default {
 #info .list-content .list-more i{
   margin-left: .5rem;
   vertical-align: top;
+  font-size: 18px;
 }
 </style>

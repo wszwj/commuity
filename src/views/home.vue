@@ -66,15 +66,15 @@
                     正在加载<div class="preloader"></div>
                 </div>
         <!-- 操作 -->
-        <div class="add" :class="{'hide':isHide}" @click="hide()"><i class="iconfont icon-add"></i></div>
+        <div class="add"><i class="iconfont icon-add"></i></div>
 
         <div class="popup popup-about">
           <div class="content-block">
-            <p><a href="#" class="close-popup" @click="hide()"><i class="iconfont icon-shape16"></i></a></p>
+            <p><a href="#" class="close-popup"><i class="iconfont icon-shape16"></i></a></p>
             <div class="add-mode">
                 <ul>
-                    <li class="close-popup" @click="hide()" v-link="{ path: '/add#tab2', replace: true}">提问题</li>
-                    <li class="close-popup" @click="hide()" v-link="{ path: '/add', replace: true}">写建议</li>
+                    <li class="close-popup" v-link="{ path: '/add#tab2', replace: true}">提问题</li>
+                    <li class="close-popup" v-link="{ path: '/add', replace: true}">写建议</li>
                 </ul>
             </div>
           </div>
@@ -190,11 +190,6 @@ export default {
   },
   components: {
     Slider
-  },
-  methods: {
-    hide: function() {
-      this.isHide = !this.isHide
-    }
   }
 }
 </script>
@@ -392,7 +387,7 @@ ul.media-info li.other i{
     display: none;
 }
 #home .popup{
-    position: absolute;
+    position: fixed;
     top: inherit;
     bottom: 0;
     left: 0;

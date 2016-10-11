@@ -5,16 +5,19 @@ li{
 	list-style-type: none;
 }
 
-li.red{
+.red{
   background-color: #e86443;
 }
-li.green{
+.green{
   background-color: #56bc8a;
 }
-li.blue{
+.blue{
   background-color: #529ecc; 
 }
-li.default{
+.deongaree{
+    background-color: #2c3d52;
+}
+.default{
     background-color: #ccc;
 }
 
