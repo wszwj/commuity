@@ -3,7 +3,7 @@
     <!-- 页面标题 -->
     <h1 class="title">{{title}}</h1>
     <!-- 副标题 -->
-    <p class="subtitle"><span>{{num}}</span>{{subtitle}}</p>
+    <p class="subtitle" v-if="subtitle ? true :false"><span>{{num}}</span>{{subtitle}}</p>
     <a class="icon-word" v-if="word ? true :false">{{word}}</a>
     <a class="button button-link button-nav pull-left" v-link="{path: path, replace: true}">
       <i class="iconfont" :class="icon"></i>

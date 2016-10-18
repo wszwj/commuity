@@ -16,18 +16,23 @@
     <!-- 关注页面 -->
       <div id="tab1" class="tab active">
             <div class="media-box infinite-scroll"  data-distance="100" v-for="item in items">
-                <h4 class="media-title"><img src="../assets/img/head.png">{{item.name}}<span>关注了问答</span></h4>
-                <p class="media-title">{{item.title}}</p>
+                <h4 class="media-title"><img src="../assets/img/head.png">{{item.name}}<span>{{item.action}}</span><span>{{item.game}}</span></h4>
+                <p class="media-title" v-if="item.title ? true :false">{{item.title}}</p>
                 <!-- 展示图 -->
                 <div class="media-show" v-if="item.imgs ? true :false">
                     <img v-for="img in item.imgs" :src="img.url" alt="{{img.alt}}">
                 </div>
-                <p class="media-info" v-if="item.content ? true :false"><span>{{item.content}}</span><a>[查看更多]</a></p>
+                <v-content :content="item.content" :more="true"></v-content>
                 <div class="media-text">
-                <ul class="media-info">
-                    <li><i class="iconfont icon-zan"></i>{{item.good}}</li>
-                    <li class="other"><i class="iconfont icon-pinglun"></i>{{item.comment}}</li>
-                    <li class="other"><i class="iconfont icon-tuijianzuiduo"></i></li>
+                <ul class="media-info"  v-if="item.game">
+                    <li><i class="iconfont icon-xinshixin"></i>{{item.good}}</li>
+                    <li><span>声</span>{{item.comment}}</li>
+                </ul>
+                <ul class="media-info"  v-else>
+                    <li><i class="iconfont icon-zan other" v-if="item.good ? true :false"></i>{{item.good}}</li>
+                    <li><i class="iconfont icon-like"></i></li>
+                    <li><i class="iconfont icon-pinglun-copy"></i>{{item.comment}}</li>
+                    <li><i class="iconfont icon-tuijianzuiduo other"></i></li>
                 </ul>
                 </div>
             </div>           
@@ -48,18 +53,18 @@
                 <h4 class="media-title"><a href=""><img src="../assets/img/head.png">{{item.name}}</a>
                 <p class="media-title">{{item.title}}</p>
                 <!-- 展示图 -->
-                 <div class="media-show" v-if="item.imgs ? true :false">
-                    <img v-for="img in item.imgs" :src="img.url" alt="{{img.alt}}">
-                 </div>
-               <p class="media-info" v-if="item.content ? true :false">{{item.content}}</p>
-            </div>
+                <div class="media-show" v-if="item.imgs ? true :false">
+                  <img v-for="img in item.imgs" :src="img.url" alt="{{img.alt}}">
+                </div>
+                <v-content :content="item.content"></v-content>
                 <div class="media-text">
                 <ul class="media-info">
-                    <li><i class="iconfont icon-zan"></i>{{item.good}}</li>
-                    <li class="other"><i class="iconfont icon-pinglun"></i>{{item.comment}}</li>
+                    <li><i class="iconfont icon-zan" v-if="item.good ? true :false"></i>{{item.good}}</li>
+                    <li class="other"><i class="iconfont icon-like"></i>{{item.comment}}</li>
                     <li class="other"><i class="iconfont icon-tuijianzuiduo"></i></li>
                 </ul>
                 </div>
+            </div>    
         </div>
                 <!-- 加载提示符 -->
                 <div class="infinite-scroll-preloader">
@@ -85,8 +90,8 @@
 </template>
 <script>
 import Slider from '../components/Slider'
+import VContent from '../components/Content'
 import $ from 'zepto'
-
 export default {
   data () {
     return {
@@ -97,6 +102,7 @@ export default {
         {
           id: 1,
           name: '时空酸奶',
+          action: '关注了问答',
           title: '由各种物质组，成的巨型球状天体。叫做星球',
           imgs: [
             {url: 'static/img/show_1.jpg', alt: 'x'},
@@ -104,14 +110,13 @@ export default {
             {url: 'static/img/show_1.jpg', alt: 'x'},
             {url: 'static/img/2.jpg', alt: 'x'}
           ],
-          good: 23,
           comment: 123
         },
         {
           id: 2,
           name: '时空酸奶',
-          title: '由各种物质组，成的巨型球状天体。叫做星球',
-          content: '由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球。',
+          action: '关注了游戏',
+          game: '守望先锋',
           imgs: [
             {url: 'static/img/index_show.jpg', alt: 'x'}
           ],
@@ -121,6 +126,7 @@ export default {
         {
           id: 3,
           name: '时空酸奶',
+          action: '赞同了问答',
           title: '由各种物质组，成的巨型球状天体。叫做星球',
           content: '由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球。',
           good: 23,
@@ -129,6 +135,7 @@ export default {
         {
           id: 4,
           name: '时空酸奶',
+          action: '关注了问答',
           title: '由各种物质组，成的巨型球状天体。叫做星球',
           imgs: [
             {url: 'static/img/show_1.jpg', alt: 'x'},
@@ -142,8 +149,8 @@ export default {
         {
           id: 5,
           name: '时空酸奶',
-          title: '由各种物质组，成的巨型球状天体。叫做星球',
-          content: '由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球。',
+          action: '关注了游戏',
+          game: '守望先锋',
           imgs: [
             {url: 'static/img/index_show.jpg', alt: 'x'}
           ],
@@ -153,6 +160,7 @@ export default {
         {
           id: 6,
           name: '时空酸奶',
+          action: '赞同了问答',
           title: '由各种物质组，成的巨型球状天体。叫做星球',
           content: '由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球。',
           good: 23,
@@ -163,7 +171,7 @@ export default {
     }
   },
   ready: function() {
-    // 打勾选择 不同分辨率适应
+    // 多图组合
     const list = $('.media-show')
     for (let i = 0; i <= list.length; i ++) {
       const imgUrl = list.eq(i).children('img')
@@ -180,16 +188,9 @@ export default {
     $(document).on('click', '.add', function () {
       $.popup('.popup-about')
     })
-    // 查看更多
-    const p = $('p.media-info')
-    const span = $('p.media-info span')
-    const pWidth = p.width()
-    const num = Math.ceil(pWidth * 2 / 15 - 8)
-    const spanContent = span.html()
-    span.html(spanContent.substr(0, num) + '...')
   },
   components: {
-    Slider
+    Slider, VContent
   }
 }
 </script>
@@ -231,7 +232,7 @@ export default {
     color: #999;
 }
 #home h4 span{
-    margin-left: 1rem;
+  margin-left: .5rem;
 }
 #home p.media-title{
     margin-bottom: 0;
@@ -293,12 +294,19 @@ ul.media-info li{
     font-size: 11pt;
 }
 ul.media-info li i{
-    font-size:15px;
+    font-size:21px;
     margin-left: 1rem;
-}
-ul.media-info li.other i{
-    font-size: 21px;
     vertical-align: middle;
+}
+ul.media-info li i.other{
+    vertical-align: initial;
+}
+ul.media-info li span{
+    margin-left: 1rem;
+    padding: 0 2px;
+    background-color: #999;
+    color: #fff;
+    font-weight: lighter;
 }
 #home .media-box{
     margin-top: 5px;
@@ -425,5 +433,7 @@ ul.media-info li.other i{
     color: #000;
     border: 2px solid #999;
 }
-
+.infinite-scroll-preloader .preloader{
+  vertical-align: middle;
+}
 </style>

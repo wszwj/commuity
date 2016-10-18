@@ -1,10 +1,10 @@
 
 @font-face {font-family: "iconfont";
-  src: url('iconfont.eot?t=1476086886'); /* IE9*/
-  src: url('iconfont.eot?t=1476086886#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('iconfont.woff?t=1476086886') format('woff'), /* chrome, firefox */
-  url('iconfont.ttf?t=1476086886') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('iconfont.svg?t=1476086886#iconfont') format('svg'); /* iOS 4.1- */
+  src: url('iconfont.eot?t=1476551245'); /* IE9*/
+  src: url('iconfont.eot?t=1476551245#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1476551245') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1476551245') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1476551245#iconfont') format('svg'); /* iOS 4.1- */
 }
 
 .iconfont {
@@ -75,3 +75,4 @@
 .icon-xiangguantuijian-copy:before { content: "\e640"; }
 .icon-more-copy:before { content: "\e641"; }
 .icon-shape40-copy:before { content: "\e642"; }
+.icon-daohang-copy:before { content: "\e643"; }

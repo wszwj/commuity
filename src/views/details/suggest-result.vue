@@ -1,7 +1,7 @@
 <template>
-<div id="info" v-for="item in items">
+<div id="info">
   <v-nav :path="path" :title="title" :num="num" :subtitle="subtitle" :word="word" :add="add"></v-nav>
-  <div class="content">
+  <div class="content" v-for="item in items">
     <div class="content-top">
       <div class="head">
         <div class="head-left">
@@ -30,13 +30,25 @@
         </div>
       </div>  
     <div class="content-block article">
-      {{{item.content}}}
-      <span>{{item.date}}</span>
+      <img :src="item.img">
+      <v-content :content="item.content"></v-content>
     </div>
-    <div class="vote">
-      <i class="iconfont icon-vote" @click="vote()"></i><p class="vote">投票</p>
-      <p>已有{{item.voted}}人投票，查看<a v-link="{ path: './suggest-result', replace: true}">投票结果</a></p>
+  <div class="content-block vote-result">
+    <div class="result">
+      <i class="iconfont icon-vote"></i><a>投票结果</a>
     </div>
+    <div class="column row">
+      <div class="col-33" v-for="vote in item.vote">
+        <p class="percent">{{vote.percent}}%</p>
+        <div class="pillar" :class="vote.color"></div>
+        <a class="green">{{vote.type}}</a>
+        <p>{{vote.num}}人</p>
+      </div>
+    </div>
+    <div class="look-result">
+      <a v-link="{ path: './comment', replace: true}">查看投票评论</a>共{{item.voted}}人
+    </div>
+  </div>
   </div>
   <div class="del" v-link="{ path: '/about', replace: true}"><i class="iconfont icon-shape16"></i></div>
   <div class="back" v-link="{ path: '/about', replace: true}"><i class="iconfont icon-shape32"></i></div>
@@ -44,6 +56,7 @@
 </template>
 <script>
 import VNav from '../../components/Nav'
+import VContent from '../../components/Content'
 import $ from 'zepto'
 export default {
   data () {
@@ -70,55 +83,53 @@ export default {
           game: '魔兽世界',
           tag: ['服务器', '英雄'],
           title: '各种啊实打实的速度由各种物质组，成的巨型球状天体。叫做星球',
-          voted: 93,
-          tip: [
-            {
-              who: '暴雪娱乐',
-              assess: '优秀评论'
-            }
-          ],
+          voted: 234,
           account: '手机电视',
           avatar: require('../../assets/img/bighead.png'),
           rank: 'MVP',
           rankClass: 'red',
           introduction: '睡大觉是，萨蒂哦地',
-          content: '<img src="../static/img/content.jpg"><p>设计大赛大厦受到收到撒谎的时间说的话</p><p>设计大赛，大厦受到收到撒谎的时间说的话撒的就是大家时代。开始的机会，山东黄金</p><p>设计大赛大速度是是，是多少，速度，厦受到收到撒谎的时间说的话</p><p>设计大赛大厦受到收到撒谎的时间说的受到收到受到收到是多少速度话</p><p>设计大赛大厦受到收到撒谎的撒点就是了看到是的旧时的旧时的旧时的圣诞节圣诞节使得数据圣诞节圣诞节速度和实践活动速度还是还是觉得还是觉得和金士顿金士顿时间说的几句话就速度速度上的话教授孙东东教授及时到货时间是你你都说开了房间的数量东风破覅哦答复都放到ufud负担复旦哦iu东方时间说的话</p><p>设计大赛大厦受到收到撒谎的时间说的话</p><img src="../static/img/content.jpg"><p>设计大赛大厦受到收到撒谎的时间说随风倒十分有地方gif度过i孤鬼ui哦都放到iu但是幅度和的话</p>',
-          date: '2016年10月1日'
-
+          img: require('../../assets/img/content.jpg'),
+          content: '飒飒的撒大苏打三大框架解放东街疯狂的机房监控的积分的jfk劳动纠纷将大幅扩大解放极度恐惧空间',
+          vote: [
+            {
+              type: '支持',
+              color: 'green',
+              num: 168,
+              percent: 70
+            },
+            {
+              type: '观望',
+              color: 'deongaree',
+              num: 13,
+              percent: 5
+            },
+            {
+              type: '反对',
+              color: 'red',
+              num: 60,
+              percent: 25
+            }
+          ]
         }
       ]
     }
   },
   ready: function() {
     const self = this
-    // 发布成功
-    $(document).on('click', '.send-right', function () {
-      $.closeModal()
-      // 弹窗提示
-      $.modal({
-        title: '<i class="iconfont icon-gou green"></i>投票已提交',
-        text: '页面将跳转你的投票结果'
-      })
-      // 弹窗消失
-      setTimeout(function() {
-        $('.modal.modal-in').hide()
-        $('.modal-overlay').css('visibility', 'hidden')
-        self.$route.router.go('./suggest-result')
-      }, 2000)
-    })
+    // 柱形图方法
+    function setWith (type, num) {
+      $('.column .' + type).css('height', self.items[0].vote[num].percent + 'px')
+      $('.column .' + type).siblings('p.percent').css('marginTop', 100 - self.items[0].vote[num].percent)
+    }
+    // 柱形图设置参数
+    setWith('green', 0)
+    setWith('deongaree', 1)
+    setWith('red', 2)
   },
   components: {
-    VNav
-  },
-  methods: {
-    vote: function() {
-      $.modal({
-        afterText: '<div class="vote-dialog"><h3>投票</h3><ul><li><input type="radio" checked="checked"/>支持</li><li><input type="radio"/>反对</li><li><input type="radio"/>观望</li></ul><div class="textarea" contenteditable="true"></div><div class="send"><div class="send-left"><i class="iconfont icon-shape1"></div><div class="send-right"></i><i class="iconfont icon-fabu"></i><a>发布</a></div></div></div>'
-      })
-    }
-  },
-  send: function() {
-    console.log('111')
+    VNav,
+    VContent
   }
 }
 </script>
@@ -262,25 +273,57 @@ export default {
   font-size: .7rem;
   color:#999;
 }
-#info .content .vote{
+
+#info .vote-result{
+  padding: 0;
+  margin-bottom: 0;
+}
+#info .result{
+  padding: .5rem;
+  text-align: center;
+  border-top: 5px solid #eff3f9;
+  box-shadow: 0 3px 10px 0 #b3b3b3;
+}
+#info .result i{
+  color: #0894ec;
+}
+#info .column{
+  padding: 10% 20%;
   text-align: center;
 }
-#info .content .vote i{
-  font-size: 2rem;
-  color: #0894ec;
+#info .column p{
+  margin: 0;
+}
+#info .column .pillar{
+    height: 100px;
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+    display: -webkit-flex; /* Safari */
+    display: flex;
+}
+#info .column a{
+  background-color: initial;
+}
+a.red{
+  color: #e86443;
+}
+a.green{
+  color: #56bc8a;
+}
+a.deongaree{
+    color: #2c3d52;
+}
 
+#info .look-result{
+    padding: 1rem;
+    text-align: center;
+    font-size: .65rem;
+    background-color: #eff3f9;
 }
-#info .content .vote p{
-  font-size: .7rem;
-  color: #999;
-}
-
-#info .content .vote p.vote{
-  margin-top: -.5rem;
-  color: #0894ec;
-}
-#info .content .vote a{
-  margin-left: .5rem;
+#info .look-result a{
+  margin-right: .5rem;
+  font-size: .75rem;
 }
 
 

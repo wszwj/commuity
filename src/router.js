@@ -53,14 +53,14 @@ export default function (router) {
         require(['./views/about'], resolve)
       }
     },
-    '/about-other': {
+    '/about/other': {
       component (resolve) {
-        require(['./views/about-other'], resolve)
+        require(['./views/about/other'], resolve)
       }
     },
-    '/about-game': {
+    '/about/game': {
       component (resolve) {
-        require(['./views/about-game'], resolve)
+        require(['./views/about/game'], resolve)
       }
     },
     '/follow': {
@@ -136,6 +136,16 @@ export default function (router) {
     '/details/suggest': {
       component (resolve) {
         require(['./views/details/suggest'], resolve)
+      }
+    },
+    '/details/suggest-result': {
+      component (resolve) {
+        require(['./views/details/suggest-result'], resolve)
+      }
+    },
+    '/details/comment': {
+      component (resolve) {
+        require(['./views/details/comment'], resolve)
       }
     },
     '/test': {

@@ -147,6 +147,7 @@ i.green{
   font-size:2rem;
   font-weight: bold;
   vertical-align: sub;
+  background-color: initial;
   
 }
 .modal-text{
