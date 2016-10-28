@@ -149,7 +149,7 @@ export default {
     font-size: 11pt;
 }
 
-#message .del{
+/*#message .del{
     height: 45px;
     width: 45px;
     background-color: rgba(116, 126, 140, 0.89);
@@ -177,6 +177,6 @@ export default {
     left: 1rem;
     border-radius: 50%;
     color: #fff;
-}
+}*/
 
 </style>

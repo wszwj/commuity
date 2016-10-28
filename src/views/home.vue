@@ -3,7 +3,7 @@
     <!-- 导航 -->
     <nav class="topnav bar bar-nav">
         <div class="logo"><img src="../assets/img/bigLogo.jpg"></div>
-        <div class="head"><a v-link="{ path: '/about', replace: true}"><img src="../assets/img/head.png"><span>·</span></a></div>
+        <div class="head" v-link="{ path: '/about', replace: true}"><img src="../assets/img/bighead.png"><span>·</span></div>
         <div class="rightIcon" v-link="{ path: '/search', replace: true}"><i class="iconfont icon-sou"></i></div>
       <div class="buttons-tab">
         <a href="#tab1" class="tab-link active button">关注</a>
@@ -22,7 +22,7 @@
                 <div class="media-show" v-if="item.imgs ? true :false">
                     <img v-for="img in item.imgs" :src="img.url" alt="{{img.alt}}">
                 </div>
-                <v-content :content="item.content" :more="true"></v-content>
+                <v-content :content="item.content" :more="true" :url="url"></v-content>
                 <div class="media-text">
                 <ul class="media-info"  v-if="item.game">
                     <li><i class="iconfont icon-xinshixin"></i>{{item.good}}</li>
@@ -98,6 +98,7 @@ export default {
       title: '任务列表',
       types: ['热门分类', '每日分类', '最新分类'],
       isHide: false,
+      url: '/details/answer',
       items: [
         {
           id: 1,
@@ -185,9 +186,9 @@ export default {
       }
     }
     // 底下操作弹出
-    $(document).on('click', '.add', function () {
-      $.popup('.popup-about')
-    })
+    // $(document).on('click', '.add', function () {
+    //   $.popup('.popup-about')
+    // })
   },
   components: {
     Slider, VContent
@@ -207,11 +208,13 @@ export default {
 }
 #home .head{
     float: right;
-    padding: 8px 10px 0 0;
+    margin: 0 .5rem 0 0;
 }
 .head img{
-    width: 24px;
+    margin-top: 1.2rem;
+    height: 1.2rem;
     vertical-align: bottom;
+    border-radius: 15%;
 }
 #home .leftIcon{
     float: left;
@@ -219,7 +222,7 @@ export default {
 }
 #home .rightIcon{
     float: right;
-    padding: 1.3rem .5rem 0;
+    padding: 1rem .5rem 0;
 }
 
 #home h4{
@@ -246,11 +249,11 @@ export default {
     background-color: #34465c;
 }
 #home .topnav span{
+    margin-left:-.2rem; 
     color: red;
-    font-size: 17pt;
+    font-size: 1rem;
     font-weight: bolder;
-    margin-left: -5px;
-    line-height: 2.3rem;
+    line-height: 230%;
 }
 .topnav .logo img{
     float: left;

@@ -1,5 +1,8 @@
 <template>
-   <p class="media-info" v-if="content ? true :false"><span>{{content}}</span><a v-if="more ? true :false">[查看更多]</a></p> 
+  <p class="media-info" v-if="content ? true :false">
+    <slot name="one"></slot>
+    <span>{{content}}</span><a v-link="{ path: url, replace: true}">[查看更多]</a>
+  </p> 
 </template>
 
 <script>
@@ -7,7 +10,8 @@ import $ from 'zepto'
 export default {
   props: {
     content: '',
-    more: ''
+    more: '',
+    url: ''
   },
   ready: function() {
     // 查看更多

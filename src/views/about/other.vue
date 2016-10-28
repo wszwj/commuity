@@ -166,7 +166,7 @@ export default {
   padding:0 .5rem;
 }
 .more ul li{
-  padding: 5px;
+  padding: .1rem;
   font-size:.75rem;
 }
 .more ul li i{

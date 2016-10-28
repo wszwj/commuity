@@ -155,8 +155,8 @@ li{
 
 /*按钮*/
 .del{
-    height: 45px;
-    width: 45px;
+    height: 2rem;
+    width: 2rem;
     background-color: rgba(116, 126, 140, 0.89);
     text-align: center;
     position: fixed;
@@ -167,8 +167,8 @@ li{
     color: #fff;
 }
 .back{
-    height: 45px;
-    width: 45px;
+    height: 2.1rem;
+    width: 2.1rem;
     background-color: rgba(116, 126, 140, 0.89);
     text-align: center;
     position: fixed;
@@ -179,8 +179,8 @@ li{
     color: #fff;
 }
 .del i,.back i{
-    font-size: 18px;
-    line-height: 2.2rem;
+    font-size: .7rem;
+    line-height: 2.1rem;
 }
 
 

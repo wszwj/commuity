@@ -518,7 +518,7 @@ ul.media-info li.other i{
     font-size:16px;
 }
 .follow-game-desc{
-    margin:.4rem 1rem;
+
     float: right;
     font-size: 9pt;
 }
@@ -528,6 +528,7 @@ ul.media-info li.other i{
     color: #fff;
 }
 .follow-game-desc p{
+    margin-top:0;
     color: #0894ec;
     text-align: right;
 }

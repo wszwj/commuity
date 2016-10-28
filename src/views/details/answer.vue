@@ -16,7 +16,7 @@
         </div>
         <div class="media-box content-block">
             <p class="media-title">{{head.title}}</p>
-            <p class="media-info"><span>{{head.content}}</span><a>[查看更多]</a></p>
+            <p class="media-info"><v-content :content="head.content" :more="true"></v-content></p>
       </div>
       </div>
       <div class="list-content" v-for="list in list">
@@ -30,7 +30,7 @@
         <div class="list-body">
           <div class="list-title"><h3>{{list.title}}</h3><span :class="list.color">{{list.rank}}</span></div>
           <div class="list-mark" v-if="list.recommend"><i class="iconfont icon-jinqi"></i>推荐答案</div>
-          <p>{{list.content}}</p>
+          <v-content :content="list.content"></v-content>
         </div>
         <div class="list-more">
           <i class="iconfont icon-duihua"></i>
@@ -44,6 +44,7 @@
 </template>
 <script>
 import VNav from '../../components/Nav'
+import VContent from '../../components/Content'
 import $ from 'zepto'
 export default {
   data () {
@@ -129,7 +130,7 @@ export default {
     span.html(spanContent.substr(0, num) + '...')
   },
   components: {
-    VNav
+    VNav, VContent
   }
 }
 </script>

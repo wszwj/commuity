@@ -2,11 +2,11 @@ import $ from 'zepto'
 
 export default function (router) {
   router.map({
-    // '*': {
-    //   component (resolve) {
-    //     require(['./views/welcome'], resolve)
-    //   }
-    // },
+    '*': {
+      component (resolve) {
+        require(['./views/welcome'], resolve)
+      }
+    },
     '/': {
       component (resolve) {
         require(['./views/welcome'], resolve)
@@ -96,6 +96,11 @@ export default function (router) {
     '/search': {
       component (resolve) {
         require(['./views/search'], resolve)
+      }
+    },
+    '/search-result': {
+      component (resolve) {
+        require(['./views/search-result'], resolve)
       }
     },
     '/setup': {

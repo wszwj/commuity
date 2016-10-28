@@ -106,7 +106,7 @@ export default {
 
 }
 .avatar p{
-    margin: -1% 37%;
+    margin: 0 37%;
     background-color: #565656;
     color: #fff;
     font-size: .1rem;
