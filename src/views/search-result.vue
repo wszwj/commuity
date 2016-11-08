@@ -11,14 +11,34 @@
   <div class="buttons-tab">
     <a href="#tab1" class="tab-link active button">问题</a>
     <a href="#tab2" class="tab-link button">建议</a>
-    <a href="#tab2" class="tab-link button">游戏主题</a>
-    <a href="#tab2" class="tab-link button">用户</a>
+    <a href="#tab3" class="tab-link button">游戏主题</a>
+    <a href="#tab4" class="tab-link button">用户</a>
   </div>
-  <p class="media-title">由各种物质组，成的巨型球状天体。叫做星球</p>
+  <div class="tabs">
+    <div id="tab1" class="tab active">
+      <div class="message">
+          <div class="media-box" v-for="item in items">
+              <p class="media-title">{{item.title}}</p>
+              <v-content :content="item.content" :more="true" :url="url"></v-content>
+              <div class="media-text">
+              <ul class="media-info">
+                  <li><i class="iconfont icon-xinshixin"></i>{{item.like}}</li>
+                  <li><i class="icon-word">答</i>{{item.answer}}</li>
+                  <li><i class="iconfont icon-zan"></i>{{item.good}}</li>
+                  <li><i class="iconfont icon-duihua"></i>{{item.comment}}</li>
+              </ul>
+              </div>
+          </div>
+      </div> 
+    </div>
+    <div id="tab2" class="tab">11111111</div>
+    <div id="tab3" class="tab">111111111</div>
+    <div id="tab4" class="tab">111111111111</div>
+  </div>
 </div>
 </template>
 <script>
-
+import VContent from '../components/Content'
 export default {
   data () {
     return {
@@ -33,8 +53,43 @@ export default {
         {
           name: '守望先锋'
         }
+      ],
+      items: [
+        {
+          id: 1,
+          name: '时空酸奶',
+          title: '由各种物质组，成的巨型球状天体。叫做星球',
+          content: '由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质',
+          like: '999k',
+          answer: 99,
+          good: 23,
+          comment: 123
+        },
+        {
+          id: 2,
+          name: '时空酸奶',
+          title: '由各种物质组，成的巨型球状天体。叫做星球,啊旧时的就是看看',
+          content: '由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球。',
+          like: '999k',
+          answer: 99,
+          good: 23,
+          comment: 123
+        },
+        {
+          id: 3,
+          name: '时空酸奶',
+          title: '由各种物质组，成的巨型球状天体。叫做星球',
+          content: '由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球。',
+          like: '999k',
+          answer: 99,
+          good: 23,
+          comment: 123
+        }
       ]
     }
+  },
+  components: {
+    VContent
   }
 }
 </script>

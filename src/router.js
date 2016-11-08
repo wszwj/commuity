@@ -9,7 +9,7 @@ export default function (router) {
     },
     '/': {
       component (resolve) {
-        require(['./views/welcome'], resolve)
+        require(['./views/login'], resolve)
       }
     },
     '/regist': {
@@ -41,11 +41,6 @@ export default function (router) {
     '/rank': {
       component (resolve) {
         require(['./views/rank'], resolve)
-      }
-    },
-    '/user': {
-      component (resolve) {
-        require(['./views/user'], resolve)
       }
     },
     '/about': {

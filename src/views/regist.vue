@@ -10,12 +10,12 @@
         <!-- 注册表单 -->
         <form>
             <i class="iconfont icon-youxiang input-icon"></i>
-            <input type="text" placeholder="输入电子邮箱">
+            <input type="text" v-model="account" placeholder="输入电子邮箱">
             <i class="iconfont icon-mima input-icon"></i>
-            <input type="password" placeholder="密码">
+            <input type="password" v-model="pwd" placeholder="密码">
             <i class="iconfont icon-mima input-icon"></i>
-            <input type="password" placeholder="再次输入密码">
-            <input type="submit" value="注册" class="send"></input>
+            <input type="password" v-model="pwds" placeholder="再次输入密码">
+            <input type="button" value="注册" class="send" @click="onSubmit()"></input>
         </form>
         <!-- 其他方式 -->
         <div class="divide">
@@ -32,6 +32,26 @@
 </div>
 </template>
 <script>
+export default {
+  data () {
+    return {
+      account: '',
+      pwd: '',
+      pwds: ''
+    }
+  },
+  methods: {
+    onSubmit: function() {
+      // return false
+      if (this.account === '' || this.pwd === '' || this.pwd === '') {
+        alert('用户名或密码不得为空！')
+      }
+      else {
+        this.$route.router.go('/initial')
+      }
+    }
+  }
+}
 </script>
 <style>
 @import '../assets/css/style.css';
@@ -40,7 +60,7 @@
     height: 100%;
 }
 #regist nav{
-    padding: 1rem 2rem;
+    padding: 1rem 2.75rem;
 }
 #regist nav i{
     color: #fff;
@@ -68,7 +88,7 @@
     float: center;
     width: 100%;
     margin: .8rem auto;
-    padding: .5rem 1rem;
+    padding: .5rem 1.75rem;
     background-color: rgba(0, 0, 0, 0);
     border: 1px solid #44b9ff;
     color: #44b9ff;
@@ -77,7 +97,6 @@
 }
 #regist input::-webkit-input-placeholder{
     color: #4caae8;
-    padding-left: 1rem;
 }
 #regist i.input-icon{
     position: absolute;

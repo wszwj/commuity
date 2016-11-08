@@ -138,11 +138,11 @@ export default {
 }
 #add .list-block .item-title.label{
   width: 45%;
-  font-size:13pt;
+  font-size:.75rem;
   color: #a9a9a9;
 }
 #add .list-block .item-title.label span{
-    font-size: 10pt;
+    font-size: .5rem;
     padding-left: .4rem;
     color: #ccc;
 }
@@ -164,7 +164,7 @@ export default {
     border-bottom: none;
 }
 #add ul li input{
-    font-size: 11pt;
+    font-size: .7rem;
 
 }
 #add ul li input::placeholder{

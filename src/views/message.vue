@@ -11,18 +11,10 @@
             </div> 
             <div class="cell-ft">{{new.time}}</div>
           </li>
-<!--           <li class="item-content">
-            <div class="cell-hd"> 
-            您的发声
-                <div class="cell-bd"> 星际争霸众筹已多水水</div>
-            收到1条评论
-            </div> 
-            <div class="cell-ft">1分钟前</div>
-          </li> -->
         </ul>
     </div>
      <div class="del" v-link="{ path: '/home', replace: true}"><i class="iconfont icon-shape16"></i></div>
-     <div class="back" v-link="{ path: '/home', replace: true}"><i class="iconfont icon-shape32"></i></div>
+     <div class="back" onclick="window.history.go(-1)"><i class="iconfont icon-shape32"></i></div>
 </div>
 </template>
 <script>
@@ -146,7 +138,7 @@ export default {
     float: right;
     color: #999;
     font-weight: normal;
-    font-size: 11pt;
+    font-size: .75rem;
 }
 
 /*#message .del{

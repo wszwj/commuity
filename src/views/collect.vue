@@ -8,7 +8,7 @@
             <h4 class="media-title"><img src="../assets/img/head.png">{{item.name}}<span>关注了问答</span></h4>
             <p class="media-title">{{item.title}}</p>
             <div class="media-show"  v-if="item.img ? true :false"><img :src="item.img"></div>  
-            <p class="media-info"><span>{{item.content}}</span><a>[查看更多]</a></p>
+            <v-content :content="item.content" :more="true" :url="url"></v-content>
             <div class="media-text">
             <!-- 点赞评论 -->
             <ul class="media-info">
@@ -23,6 +23,7 @@
 </template>
 <script>
 import VNav from '../components/Nav'
+import VContent from '../components/Content'
 import $ from 'zepto'
 export default {
   data () {
@@ -30,6 +31,7 @@ export default {
       title: '我的收藏',
       path: '/about',
       icon: 'icon-shape32',
+      url: '/details/answer',
       items: [
         {
           id: 1,
@@ -38,6 +40,7 @@ export default {
           content: '由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球',
           good: 23,
           comment: 123
+
         },
         {
           id: 2,
@@ -68,7 +71,7 @@ export default {
     span.html(spanContent.substr(0, num) + '...')
   },
   components: {
-    VNav
+    VNav, VContent
   }
 }
 </script>

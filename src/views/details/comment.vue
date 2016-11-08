@@ -52,7 +52,7 @@
       </nav>
     </div>
   <div class="del" v-link="{ path: '/about', replace: true}"><i class="iconfont icon-shape16"></i></div>
-  <div class="back" v-link="{ path: '/about', replace: true}"><i class="iconfont icon-shape32"></i></div>
+  <div class="back" onclick="window.history.go(-1)"><i class="iconfont icon-shape32"></i></div>
 </div>
 </template>
 <script>

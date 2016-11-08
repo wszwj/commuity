@@ -22,7 +22,16 @@ export default {
     const pSizeNum = parseInt(pSize.substr(0, pSize.length - 2), 10)
     const num = Math.ceil(pWidth * 2 / pSizeNum - 8)
     const spanContent = span.html()
-    span.html(spanContent.substr(0, num) + '...')
+
+    const More = function() {
+      const obj = {}
+      obj.do = function(n) {
+        span.html(spanContent.substr(0, n) + '...')
+      }
+      return obj
+    }
+    const m = new More()
+    m.do(num)
   }
 }
 </script>

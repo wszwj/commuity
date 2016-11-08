@@ -5,7 +5,7 @@
         <div class="  media-box" v-for="item in items">
             <p class="media-title">{{item.title}}</p>
             <div class="media-show" v-if="item.img ? true :false"><img :src="item.img"></div>
-            <p class="media-info"><span>{{item.content}}</span><a>[查看更多]</a></p>
+            <v-content :content="item.content" :more="true" :url="url"></v-content>
             <div class="media-text">
             <ul class="media-info">
                 <li><i class="iconfont icon-zan"></i>{{item.good}}</li>
@@ -18,6 +18,7 @@
 </template>
 <script>
 import VNav from '../components/Nav'
+import VContent from '../components/Content'
 import $ from 'zepto'
 export default {
   data () {
@@ -60,7 +61,7 @@ export default {
     span.html(spanContent.substr(0, num) + '...')
   },
   components: {
-    VNav
+    VNav, VContent
   }
 }
 </script>

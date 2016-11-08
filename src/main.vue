@@ -3,8 +3,8 @@
 </template>
 
 <script>
-import Bar from './components/Bar'
-import BarItem from './components/BarItem'
+// import Bar from './components/Bar'
+// import BarItem from './components/BarItem'
 // import {wxShareConfig} from './util/util'
 import $ from 'zepto'
 import wx from 'wx'
@@ -33,11 +33,11 @@ export default {
     return {
       isIndex: true
     }
-  },
-  components: {
-    Bar,
-    BarItem
   }
+  // components: {
+  //   Bar,
+  //   BarItem
+  // }
 }
 </script>
 

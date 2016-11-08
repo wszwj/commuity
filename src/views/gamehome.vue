@@ -31,7 +31,7 @@
               <i class="small iconfont icon-yingyong"> {{page}}</i>
               <a>#{{category}}</a>
               <div class="media-box">
-                  <p class="media-info"><span>{{info}}</span><a>[查看更多]</a></p>
+                  <v-content :content="info" :more="true"></v-content>
               </div>
          </div>
          <!-- 栏目 -->
@@ -60,7 +60,7 @@
               <div class="media-show" v-if="item.imgs ? true :false">
                   <img v-for="img in item.imgs" :src="img.url" alt="{{img.alt}}">
               </div>
-              <p class="media-info" v-if="item.content ? true :false"><span>{{item.content}}</span><a>[查看更多]</a></p>
+              <v-content :content="info" :more="true"></v-content>
               <div class="media-text">
               <ul class="media-info">
                   <li><i class="iconfont icon-zan"></i>{{item.good}}</li>
@@ -87,11 +87,12 @@
     </div>
   </div>
   <div class="del" v-link="{ path: '/about', replace: true}"><i class="iconfont icon-shape16"></i></div>
-  <div class="back" v-link="{ path: '/about', replace: true}"><i class="iconfont icon-shape32"></i></div>
+  <div class="back" onclick="window.history.go(-1)"><i class="iconfont icon-shape32"></i></div>
 </div>
 </template>
 <script>
 import $ from 'zepto'
+import VContent from '../components/Content'
 export default {
   data () {
     return {
@@ -280,6 +281,9 @@ export default {
     const spanContent = span.html()
     span.html(spanContent.substr(0, num) + '...')
   },
+  components: {
+    VContent
+  },
   methods: {
     ask: function(event) {
       if (!event) {
@@ -316,11 +320,10 @@ export default {
     margin-right: .5rem;
 }
 #game .rightIcon i{
-    font-size: 14px;
+    font-size: .75rem;
 }
 #game .rightIcon span{
     margin-right: .5rem;
-    padding: 0 4px;
     font-size: .1rem;
     border: 1px solid #898989;
     background-color: #898989;
@@ -537,32 +540,5 @@ ul.media-info li.other i{
 
 
 
-#game .del{
-    height: 45px;
-    width: 45px;
-    background-color: rgba(116, 126, 140, 0.89);
-    text-align: center;
-    position: fixed;
-    z-index: 999;
-    bottom: 5rem;
-    left: 1rem;
-    border-radius: 50%;
-    color: #fff;
-}
-#game .back{
-    height: 45px;
-    width: 45px;
-    background-color: rgba(116, 126, 140, 0.89);
-    text-align: center;
-    position: fixed;
-    z-index: 999;
-    bottom: 2rem;
-    left: 1rem;
-    border-radius: 50%;
-    color: #fff;
-}
-#game .del i,#game .back i{
-    font-size: 18px;
-    line-height: 2.2rem;
-}
+
 </style>

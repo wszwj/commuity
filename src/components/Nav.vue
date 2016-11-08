@@ -71,7 +71,7 @@ body{
 .bar a.button .iconfont {
   width: 2rem;
   color: #fff;
-  font-size: 21px;
+  font-size: .75rem;
   margin: 0 .5rem;
 }
 /*标题*/
@@ -120,11 +120,12 @@ body{
     top: .6rem;
     left: 1rem;
     width: 1rem;
-    height: 22px;
+    height: 1rem;
     background-color: #fff;
     color: inherit;
     text-align: center;
-    font-size: 11pt;
+    font-size: .7rem;
+    line-height: 1.5;
     border-radius: 4px;
 }
 

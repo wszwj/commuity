@@ -2,7 +2,7 @@
 <div id="initial">
     <!-- 导航 -->
     <nav>
-        <a>直接跳过</a>
+        <a v-link="{ path: '/home', replace: true}">直接跳过</a>
     </nav>
     <div class="content-block">
         <h3>关注你喜欢的游戏</h3>
@@ -21,7 +21,7 @@
                   </div>
             </div>
             <!-- 确定按钮 -->
-            <input type="submit" value="选好了" class="send"></input>
+            <input type="button" value="选好了" class="send" @click="onSubmit()"></input>
         </form>
         
     </div>
@@ -75,6 +75,9 @@ export default{
   methods: {
     onSelect: function(index) {
       this.items[index].isS = !this.items[index].isS
+    },
+    onSubmit: function() {
+      this.$route.router.go('/home')
     }
   }
 }
@@ -90,6 +93,7 @@ export default{
     padding: 1rem 2rem;
 }
 #initial nav a{
+    margin-right: 2rem;
     text-align: center;
     float: right;
     font-size:.8rem;

@@ -13,7 +13,7 @@
           <li class="red">MVP</li>
         </div>
         <div class="rank-context">
-          <a>反恐精英</a>>
+          <a>反恐精英</a>
         </div>
       </div>
       <div class="rank-info rank-info-last">
@@ -27,7 +27,7 @@
     </div>
 
    <div class="del" v-link="{ path: '/about', replace: true}"><i class="iconfont icon-shape16"></i></div>
-   <div class="back" v-link="{ path: '/about', replace: true}"><i class="iconfont icon-shape32"></i></div>
+   <div class="back" onclick="window.history.go(-1)"><i class="iconfont icon-shape32"></i></div>
   </div>
   <div class="rank-method">
     <a>头衔攻略</a>
@@ -106,8 +106,9 @@ export default {
 }
 .rank-context a span{
     color: #e86443;
-    font-size: .1rem;
+    font-size: .5rem;
     vertical-align: top;
+    font-style: italic;
 }
 .rank-info-last{
   border-bottom: none;

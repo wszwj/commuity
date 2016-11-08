@@ -21,13 +21,12 @@
                 <img src="../assets/img/bighead.png">
         </div>
     </div>
-       
+    <!-- 返回与主页按钮 -->
     <div class="del" v-link="{ path: '/about', replace: true}"><i class="iconfont icon-shape16"></i></div>
-    <div class="back" v-link="{ path: '/about', replace: true}"><i class="iconfont icon-shape32"></i></div>
-        <div class="list-block" style="margin-top: 200px;">
+    <div class="back" onclick="window.history.go(-1)"><i class="iconfont icon-shape32"></i></div>
+        <div class="list-block">
         <ul>
           <li class="item-content item-link" v-link="{ path: '/rank', replace: true}">
-            <div class="item-media"></div>
             <div class="message item-inner"> 
                 <div class="cell-hd">
                     <i class="iconfont icon-shape74"></i>
@@ -44,7 +43,6 @@
         <div class="list-block">
             <ul>
               <li class="item-content item-link" v-link="{ path: '/follow', replace: true}">
-                <div class="item-media"></div>
                 <div class="message item-inner"> 
                     <div class="cell-hd">
                         <i class="iconfont icon-like"></i>
@@ -57,7 +55,6 @@
                 </div>
               </li>
               <li class="item-content item-link" v-link="{ path: '/collect', replace: true}">
-                <div class="item-media"></div>
                 <div class="message item-inner"> 
                     <div class="cell-hd">
                         <i class="iconfont icon-tuijianzuiduo"></i>
@@ -70,7 +67,6 @@
                 </div>
               </li>
               <li class="item-content item-link" v-link="{ path: '/say', replace: true}">
-                <div class="item-media"></div>
                 <div class="message item-inner"> 
                     <div class="cell-hd">
                         <div class="icon-word">声</div>
@@ -83,7 +79,6 @@
                 </div>
               </li>
               <li class="item-content item-link" v-link="{ path: '/answer', replace: true}">
-                <div class="item-media"></div>
                 <div class="message item-inner"> 
                     <div class="cell-hd">
                         <div class="icon-word">答</div>
@@ -96,7 +91,6 @@
                 </div>
               </li>
               <li class="item-content item-link" v-link="{ path: '/active', replace: true}">
-                <div class="item-media"></div>
                 <div class="message item-inner"> 
                     <div class="cell-hd">
                         <i class="iconfont icon-radiowaves"></i>
@@ -124,6 +118,7 @@ export default {
     background-color: #eff3f9;
 }
 #about .topnav{
+    position: relative;
     height: 200px;
     box-shadow: none;
     margin-bottom: 10px;
@@ -201,6 +196,7 @@ export default {
     right: 1rem;
 }
 .list-block .item-link .item-inner{
+    padding-left: .75rem;
     background-image: none;
 }
 .list-block{

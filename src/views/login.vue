@@ -8,10 +8,10 @@
         <h3>VIVA 玩家</h3>
         <form>
             <i class="iconfont icon-shape14 input-icon"></i>
-            <input type="text" placeholder="电子邮箱/手机">
+            <input type="text" v-model="account" placeholder="电子邮箱/手机">
             <i class="iconfont icon-mima input-icon"></i>
-            <input type="password" placeholder="密码">
-            <input type="submit" value="登录" class="send"></input>
+            <input type="password" v-model="pwd" placeholder="密码">
+            <input type="button" value="登录" class="send" @click="onSubmit()"></input>
             <p>或者   用<span> 微信<i class="iconfont icon-weixin"></i> </span>登陆</p>
         </form>
         
@@ -19,6 +19,26 @@
 </div>
 </template>
 <script>
+// import $ from 'zepto'
+export default {
+  data () {
+    return {
+      account: '',
+      pwd: ''
+    }
+  },
+  methods: {
+    onSubmit: function() {
+      // return false
+      if (this.account === '' || this.pwd === '') {
+        alert('用户名或密码不得为空！')
+      }
+      else {
+        this.$route.router.go('/home')
+      }
+    }
+  }
+}
 </script>
 <style>
 @import '../assets/css/style.css';
@@ -27,11 +47,11 @@
     height: 100%;
 }
 #login nav{
-    padding: 1rem 2rem;
+    padding: 1rem 2.75rem;
 }
 #login nav i{
     color: #fff;
-    font-size:18px;
+    font-size:.75rem;
 }
 #login nav a{
     text-align: center;
@@ -55,7 +75,7 @@
     float: center;
     width: 100%;
     margin: .8rem auto;
-    padding: .5rem 1rem;
+    padding: .5rem 1.75rem;
     background-color: rgba(0, 0, 0, 0);
     border: 1px solid #44b9ff;
     color: #44b9ff;
@@ -64,7 +84,6 @@
 }
 #login input::-webkit-input-placeholder{
     color: #4caae8;
-    padding-left: 1rem;
 }
 #login i.input-icon{
     position: absolute;

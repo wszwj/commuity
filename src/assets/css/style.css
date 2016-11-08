@@ -65,7 +65,7 @@ li{
 }
 .message .cell-bd p.media-desc{
     color: #999;
-    font-size:11pt;
+    font-size:.75rem;
     margin: 0;
 }
 .message .cell-ft{
@@ -110,16 +110,14 @@ li{
 .message ul.media-info li{
     text-align: right;
     display: inline;
-    font-size: 11pt;
+    font-size: .7rem;
 }
 .message ul.media-info li i{
-    font-size:15px;
-    margin-left: 1rem;
+    font-size:.75rem;
+    margin-left: .5rem;
+    font-style: inherit;
 }
-.message ul.media-info li.other i{
-    font-size: 21px;
-    vertical-align: middle;
-}
+
 .message .media-box{
     padding: 0 1rem;
     background-color: #fff;
@@ -151,6 +149,8 @@ li{
     color: #999;
     font-size: 11pt;
 }
+
+
 
 
 /*按钮*/

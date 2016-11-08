@@ -13,14 +13,13 @@
                 <div class="  media-box" v-for="item in items">
                     <h4 class="media-title"><img src="../assets/img/head.png">{{item.name}}<span>关注了问答</span></h4>
                     <p class="media-title">{{item.title}}</p>
-                    <div class="media-show" v-if="isImg(item.img)"><img :src="item.img"></div>
-                    <p class="media-info"><span>{{item.content}}</span><a>[查看更多]</a></p>
+                    <v-content :content="item.content" :more="true"></v-content>
                     <div class="media-text">
                     <ul class="media-info">
                         <li><i class="iconfont icon-xinshixin"></i>{{item.like}}</li>
                         <li><i class="icon-word">答</i>{{item.answer}}</li>
                         <li><i class="iconfont icon-zan"></i>{{item.good}}</li>
-                        <li class="other"><i class="iconfont icon-pinglun"></i>{{item.comment}}</li>
+                        <li><i class="iconfont icon-duihua"></i>{{item.comment}}</li>
                     </ul>
                     </div>
                 </div>
@@ -28,15 +27,15 @@
           </div>
           <div id="tab2" class="tab">
             <div class="message">
-                <div class="  media-box" v-for="item in items">
+                <div class="media-box" v-for="item in items">
                     <h4 class="media-title"><img src="../assets/img/head.png">{{item.name}}<span>关注了问答</span></h4>
                     <p class="media-title">{{item.title}}</p>
                     <div class="media-show" v-if="item.img ? true :false"><img :src="item.img"></div>
-                    <p class="media-info"><span>{{item.content}}</span><a>[查看更多]</a></p>
+                    <v-content :content="item.content" :more="true" :url="url"></v-content>
                     <div class="media-text">
                     <ul class="media-info">
                         <li><i class="iconfont icon-zan"></i>{{item.good}}</li>
-                        <li class="other"><i class="iconfont icon-pinglun"></i>{{item.comment}}</li>
+                        <li class="other"><i class="iconfont icon-duihua"></i>{{item.comment}}</li>
                         <li class="other"><i class="iconfont icon-tuijianzuiduo"></i></li>
                     </ul>
                     </div>
@@ -53,6 +52,7 @@
 </template>
 <script>
 import VNav from '../components/Nav'
+import VContent from '../components/Content'
 import $ from 'zepto'
 export default {
   data () {
@@ -104,7 +104,7 @@ export default {
     span.html(spanContent.substr(0, num) + '...')
   },
   components: {
-    VNav
+    VNav, VContent
   }
 }
 </script>

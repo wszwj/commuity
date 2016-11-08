@@ -15,12 +15,12 @@
     <div class="tabs">
     <!-- 关注页面 -->
       <div id="tab1" class="tab active">
-            <div class="media-box infinite-scroll"  data-distance="100" v-for="item in items">
+            <div class="media-box" v-for="item in items">
                 <h4 class="media-title"><img src="../assets/img/head.png">{{item.name}}<span>{{item.action}}</span><span>{{item.game}}</span></h4>
                 <p class="media-title" v-if="item.title ? true :false">{{item.title}}</p>
                 <!-- 展示图 -->
                 <div class="media-show" v-if="item.imgs ? true :false">
-                    <img v-for="img in item.imgs" :src="img.url" alt="{{img.alt}}">
+                    <a v-for="img in item.imgs" @click="imgSkip(item.action)"><img :src="img.url" alt="{{img.alt}}"></a>
                 </div>
                 <v-content :content="item.content" :more="true" :url="url"></v-content>
                 <div class="media-text">
@@ -29,9 +29,9 @@
                     <li><span>声</span>{{item.comment}}</li>
                 </ul>
                 <ul class="media-info"  v-else>
-                    <li><i class="iconfont icon-zan other" v-if="item.good ? true :false"></i>{{item.good}}</li>
+                    <li><i class="iconfont icon-zan" v-if="item.good ? true :false"></i>{{item.good}}</li>
                     <li><i class="iconfont icon-like"></i></li>
-                    <li><i class="iconfont icon-pinglun-copy"></i>{{item.comment}}</li>
+                    <li><i class="iconfont icon-pinglun-copy other"></i>{{item.comment}}</li>
                     <li><i class="iconfont icon-tuijianzuiduo other"></i></li>
                 </ul>
                 </div>
@@ -66,20 +66,16 @@
                 </div>
             </div>    
         </div>
-                <!-- 加载提示符 -->
-                <div class="infinite-scroll-preloader">
-                    正在加载<div class="preloader"></div>
-                </div>
         <!-- 操作 -->
-        <div class="add"><i class="iconfont icon-add"></i></div>
+        <div class="add" @click="popup()"><i class="iconfont icon-add"></i></div>
 
         <div class="popup popup-about">
           <div class="content-block">
-            <p><a href="#" class="close-popup"><i class="iconfont icon-shape16"></i></a></p>
+            <div class="add-after close-popup"><i class="iconfont icon-shape16"></i></div>
             <div class="add-mode">
                 <ul>
-                    <li class="close-popup" v-link="{ path: '/add#tab2', replace: true}">提问题</li>
-                    <li class="close-popup" v-link="{ path: '/add', replace: true}">写建议</li>
+                    <li @click="skip()"  v-link="{ path: '/add#tab2', replace: true}">提问题</li>
+                    <li @click="skip()"  v-link="{ path: '/add', replace: true}">写建议</li>
                 </ul>
             </div>
           </div>
@@ -101,7 +97,6 @@ export default {
       url: '/details/answer',
       items: [
         {
-          id: 1,
           name: '时空酸奶',
           action: '关注了问答',
           title: '由各种物质组，成的巨型球状天体。叫做星球',
@@ -114,7 +109,6 @@ export default {
           comment: 123
         },
         {
-          id: 2,
           name: '时空酸奶',
           action: '关注了游戏',
           game: '守望先锋',
@@ -125,7 +119,6 @@ export default {
           comment: 123
         },
         {
-          id: 3,
           name: '时空酸奶',
           action: '赞同了问答',
           title: '由各种物质组，成的巨型球状天体。叫做星球',
@@ -134,7 +127,6 @@ export default {
           comment: 123
         },
         {
-          id: 4,
           name: '时空酸奶',
           action: '关注了问答',
           title: '由各种物质组，成的巨型球状天体。叫做星球',
@@ -148,7 +140,6 @@ export default {
           comment: 123
         },
         {
-          id: 5,
           name: '时空酸奶',
           action: '关注了游戏',
           game: '守望先锋',
@@ -159,7 +150,67 @@ export default {
           comment: 123
         },
         {
-          id: 6,
+          name: '时空酸奶',
+          action: '赞同了问答',
+          title: '由各种物质组，成的巨型球状天体。叫做星球',
+          content: '由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球。',
+          good: 23,
+          comment: 123
+        },
+        {
+          name: '时空酸奶',
+          action: '关注了问答',
+          title: '由各种物质组，成的巨型球状天体。叫做星球',
+          imgs: [
+            {url: 'static/img/show_1.jpg', alt: 'x'},
+            {url: 'static/img/2.jpg', alt: 'x'},
+            {url: 'static/img/show_1.jpg', alt: 'x'},
+            {url: 'static/img/2.jpg', alt: 'x'}
+          ],
+          comment: 123
+        },
+        {
+          name: '时空酸奶',
+          action: '关注了游戏',
+          game: '守望先锋',
+          imgs: [
+            {url: 'static/img/index_show.jpg', alt: 'x'}
+          ],
+          good: 23,
+          comment: 123
+        },
+        {
+          name: '时空酸奶',
+          action: '赞同了问答',
+          title: '由各种物质组，成的巨型球状天体。叫做星球',
+          content: '由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球。',
+          good: 23,
+          comment: 123
+        },
+        {
+          name: '时空酸奶',
+          action: '关注了问答',
+          title: '由各种物质组，成的巨型球状天体。叫做星球',
+          imgs: [
+            {url: 'static/img/show_1.jpg', alt: 'x'},
+            {url: 'static/img/2.jpg', alt: 'x'},
+            {url: 'static/img/show_1.jpg', alt: 'x'},
+            {url: 'static/img/2.jpg', alt: 'x'}
+          ],
+          good: 23,
+          comment: 123
+        },
+        {
+          name: '时空酸奶',
+          action: '关注了游戏',
+          game: '守望先锋',
+          imgs: [
+            {url: 'static/img/index_show.jpg', alt: 'x'}
+          ],
+          good: 23,
+          comment: 123
+        },
+        {
           name: '时空酸奶',
           action: '赞同了问答',
           title: '由各种物质组，成的巨型球状天体。叫做星球',
@@ -175,7 +226,7 @@ export default {
     // 多图组合
     const list = $('.media-show')
     for (let i = 0; i <= list.length; i ++) {
-      const imgUrl = list.eq(i).children('img')
+      const imgUrl = list.eq(i).children('a').children('img')
       for (let j = 0; j <= imgUrl.length; j ++) {
         if (j <= 4) {
           imgUrl.css('width', 100 / imgUrl.length + '%')
@@ -189,6 +240,21 @@ export default {
     // $(document).on('click', '.add', function () {
     //   $.popup('.popup-about')
     // })
+  },
+  methods: {
+    skip: function() {
+      $('.popup-overlay').hide()
+      $('.popup').hide()
+    },
+    imgSkip: function(action) {
+      if (action === '关注了游戏') {
+        this.$router.go('/gamehome')
+      }
+    },
+    popup: function() {
+      $.popup('.popup-about')
+      $('.popup-overlay').hide()
+    }
   },
   components: {
     Slider, VContent
@@ -249,11 +315,11 @@ export default {
     background-color: #34465c;
 }
 #home .topnav span{
-    margin-left:-.2rem; 
+    margin-left: -.3rem;
     color: red;
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: bolder;
-    line-height: 230%;
+    line-height: 160%;
 }
 .topnav .logo img{
     float: left;
@@ -297,12 +363,11 @@ ul.media-info li{
     font-size: 11pt;
 }
 ul.media-info li i{
-    font-size:21px;
-    margin-left: 1rem;
-    vertical-align: middle;
+    font-size:.75rem;
+    margin: 0 .1rem 0 1rem;
 }
 ul.media-info li i.other{
-    vertical-align: initial;
+    vertical-align: middle;
 }
 ul.media-info li span{
     margin-left: 1rem;
@@ -379,64 +444,67 @@ ul.media-info li span{
     font-size: 11pt;
 }
 #home .add{
-    height: 45px;
-    width: 45px;
+    height: 2rem;
+    width: 2rem;
     background-color: #ec7e08;
     text-align: center;
     position: fixed;
     z-index: 999;
-    bottom: 50px;
+    bottom: 2.5rem;
     left: 2rem;
     border-radius: 50%;
     color: #fff
 }
 #home .add i{
-    font-size: 21px;
-    line-height: 2;
+    font-size: 1rem;
+    line-height: 2rem;
 }
 #home .hide{
     display: none;
 }
 #home .popup{
     position: fixed;
-    top: inherit;
-    bottom: 0;
-    left: 0;
     background-color: rgba(0, 0, 0, 0);
 }
-#home .popup a{
-    height: 45px;
-    width: 45px;
+#home .popup .add-after{
+    height: 2rem;
+    width: 2rem;
     background-color: #ec7e08;
     text-align: center;
-    position: fixed;
-    z-index: 999;
-    bottom: 50px;
+    position: absolute;
+    bottom: 2.5rem;
     left: 2rem;
     border-radius: 50%;
-    color: #fff
+    color: #fff;
 }
-#home .popup a i{
-    font-size: 18px;
-    line-height: 2.5;
+#home .popup .add-after i{
+    font-size: .75rem;
+    line-height: 2rem;
 }
 #home .add-mode{
+    height: 2rem;
     position: absolute;
-    bottom: 35px;
-    left: 3rem;
+    bottom: 2.5rem;
+    left: 4rem;
+    margin-left: .5rem;
 }
 #home .add-mode ul{
-    display: inline-flex;
-} 
+    height: 100%;
+    margin: 0;
+    padding:2% 0;
+}
 #home .add-mode ul li{
-    background-color: #fff;
-    margin: 0 1.5rem 0 .2rem;
-    padding: 2px 10px;
-    letter-spacing: 2px;
+    display: inline-block;
+    height: 100%;
+    line-height: 2;
+    margin: 0 0.75rem 0 .2rem;
+    padding: 0 .5rem;
+    letter-spacing: 1px;
     color: #000;
-    border: 2px solid #999;
+    font-size: .75rem;
+    border: 1px solid #999;
+    background-color: #fff;
 }
-.infinite-scroll-preloader .preloader{
-  vertical-align: middle;
-}
+
+
 </style>

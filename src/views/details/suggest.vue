@@ -39,7 +39,7 @@
     </div>
   </div>
   <div class="del" v-link="{ path: '/about', replace: true}"><i class="iconfont icon-shape16"></i></div>
-  <div class="back" v-link="{ path: '/about', replace: true}"><i class="iconfont icon-shape32"></i></div>
+  <div class="back" onclick="window.history.go(-1)"><i class="iconfont icon-shape32"></i></div>
 </div>
 </template>
 <script>
@@ -113,7 +113,7 @@ export default {
   methods: {
     vote: function() {
       $.modal({
-        afterText: '<div class="vote-dialog"><h3>投票</h3><ul><li><input type="radio" checked="checked"/>支持</li><li><input type="radio"/>反对</li><li><input type="radio"/>观望</li></ul><div class="textarea" contenteditable="true"></div><div class="send"><div class="send-left"><i class="iconfont icon-shape1"></div><div class="send-right"></i><i class="iconfont icon-fabu"></i><a>发布</a></div></div></div>'
+        afterText: '<div class="vote-dialog"><h3>投票</h3><ul><li><input type="radio" checked="checked" name="vote"/>支持</li><li><input type="radio" name="vote"/>反对</li><li><input type="radio" name="vote"/>观望</li></ul><div class="textarea" contenteditable="true"></div><div class="send"><div class="send-left"><i class="iconfont icon-shape1"></div><div class="send-right"></i><i class="iconfont icon-fabu"></i><a>发布</a></div></div></div>'
       })
     }
   },
