@@ -12,7 +12,7 @@
             <i class="iconfont icon-mima input-icon"></i>
             <input type="password" v-model="pwd" placeholder="密码">
             <input type="button" value="登录" class="send" @click="onSubmit()"></input>
-            <p>或者   用<span> 微信<i class="iconfont icon-weixin"></i> </span>登陆</p>
+            <p>或者   用<span @click="login()"> 微信<i class="iconfont icon-weixin"></i> </span>登陆</p>
         </form>
         
     </div>
@@ -29,13 +29,22 @@ export default {
   },
   methods: {
     onSubmit: function() {
-      // return false
+      const re = /^[1][3-8]+\d{9}$/
+      const reg = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/
       if (this.account === '' || this.pwd === '') {
         alert('用户名或密码不得为空！')
       }
       else {
-        this.$route.router.go('/home')
+        if (re.test(this.account) || reg.test(this.account)) {
+          this.$route.router.go('/home')
+        }
+        else {
+          alert('请输入正确的邮箱或手机！')
+        }
       }
+    },
+    login: function() {
+      console.log(111)
     }
   }
 }
@@ -104,6 +113,7 @@ export default {
     color: #10df1b;
     font-size: .8rem;
     letter-spacing: 2px;
+    cursor: pointer;
 }
 #login p span i.iconfont{
     vertical-align: middle;  

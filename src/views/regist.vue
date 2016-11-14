@@ -10,7 +10,8 @@
         <!-- 注册表单 -->
         <form>
             <i class="iconfont icon-youxiang input-icon"></i>
-            <input type="text" v-model="account" placeholder="输入电子邮箱">
+            <input v-if="change" type="text" v-model="account" placeholder="输入电子邮箱">
+            <input v-else="change" type="text" v-model="account" placeholder="输入手机">
             <i class="iconfont icon-mima input-icon"></i>
             <input type="password" v-model="pwd" placeholder="密码">
             <i class="iconfont icon-mima input-icon"></i>
@@ -23,8 +24,9 @@
             <div class="mode">
                 <p>其他注册方式</p>
                 <div class="icon">
-                    <i class="iconfont icon-shouji"></i>
-                    <i class="iconfont icon-weixin"></i>
+                    <i v-if="change" class="iconfont icon-shouji left" @click="phone()"></i>
+                    <i v-else="change" class="iconfont icon-xinxi left" @click="phone()"></i>
+                    <i class="iconfont icon-weixin" @click="login()"></i>
                 </div>
             </div> 
         </div>     
@@ -37,18 +39,49 @@ export default {
     return {
       account: '',
       pwd: '',
-      pwds: ''
+      pwds: '',
+      change: true
     }
   },
   methods: {
+    phone: function() {
+      this.change = !this.change
+      // console.log(11)
+    },
     onSubmit: function() {
-      // return false
-      if (this.account === '' || this.pwd === '' || this.pwd === '') {
+      const re = /^[1][3-8]+\d{9}$/
+      const reg = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/
+      const self = this
+      const difference = function() {
+        if (self.pwd === self.pwds) {
+          self.$route.router.go('/home')
+        }
+        else {
+          alert('两次输入的密码不一致！')
+        }
+      }
+      const judge = function(regexp, type) {
+        if (regexp.test(self.account)) {
+          difference()
+        }
+        else {
+          alert('请输入正确的' + type + '！')
+        }
+      }
+      if (this.account === '' || this.pwd === '') {
         alert('用户名或密码不得为空！')
       }
       else {
-        this.$route.router.go('/initial')
+        if (this.change) {
+          judge(reg, '邮箱')
+        }
+        else {
+          judge(re, '手机')
+        }
       }
+    },
+    login: function() {
+      console.log(111)
     }
   }
 }
@@ -135,7 +168,7 @@ export default {
     margin:.6rem .5rem;
     float: right;
 }
-#regist .mode .icon i.icon-shouji{
+#regist .mode .icon i.left{
     color: #44b9ff;
     padding-right: .5rem;
 }
