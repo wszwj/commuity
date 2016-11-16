@@ -4,11 +4,16 @@
 
 <script>
 import ISlider from '../assets/js/iSlider'
-
+import store from '../vuex/store'
 export default {
-  data () {
-    return {
-      slider: null
+  // data () {
+  //   return {
+  //     slider: null
+  //   }
+  // },
+  computed: {
+    counter () {
+      return store.state.slider
     }
   },
   ready () {
