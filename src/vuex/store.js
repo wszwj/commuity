@@ -5,8 +5,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    counter: 0,
-    slider: null
+    counter: 0
   },
   mutations: {
     INCREMENT (state) {

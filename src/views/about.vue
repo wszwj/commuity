@@ -16,9 +16,8 @@
                 <h4>实打实大苏打速度</h4>
                 <div class="set" v-link="{ path: '/setup', replace: true}"><i class="iconfont icon-xt8"></i>设置</div>
             </div>
-
                 <p>是是打发打发士大夫打发打发士大夫打发打发士大夫是是打发打发士大夫打发打发士大夫打发打发士大夫</p>
-                <img src="../assets/img/bighead.png">
+                <img :src="headimgurl"/>
         </div>
     </div>
     <!-- 返回与主页按钮 -->
@@ -108,7 +107,19 @@
 </template>
 <script>
 export default {
-
+  data () {
+    return {
+      headimgurl: ''
+    }
+  },
+  ready: function () {
+    // 获取用户头像
+    this.$http.get('../../../static/data/access_token.json')
+    .then((data) => {
+      this.headimgurl = data.data.headimgurl
+      console.log(data.data.headimgurl)
+    })
+  }
 }
 </script>
 

@@ -12,9 +12,8 @@
             <i class="iconfont icon-mima input-icon"></i>
             <input type="password" v-model="pwd" placeholder="密码">
             <input type="button" value="登录" class="send" @click="onSubmit()"></input>
-            <p>或者   用<span @click="login()"> 微信<i class="iconfont icon-weixin"></i> </span>登陆</p>
+            <p>或者   用<a :href="login"> 微信<i class="iconfont icon-weixin"></i> </a>登陆</p>
         </form>
-        
     </div>
 </div>
 </template>
@@ -24,7 +23,8 @@ export default {
   data () {
     return {
       account: '',
-      pwd: ''
+      pwd: '',
+      login: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxdcf6edbcf085e5d0&redirect_uri=http://vue.wjcc.cc/initial&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'
     }
   },
   methods: {
@@ -36,7 +36,7 @@ export default {
       }
       else {
         if (re.test(this.account) || reg.test(this.account)) {
-          this.$route.router.go('/home')
+          this.$route.router.go('/initial')
         }
         else {
           alert('请输入正确的邮箱或手机！')
@@ -109,13 +109,13 @@ export default {
 #login p{
     text-align: right;
 }
-#login p span{
+#login p a{
     color: #10df1b;
     font-size: .8rem;
     letter-spacing: 2px;
     cursor: pointer;
 }
-#login p span i.iconfont{
+#login p a i.iconfont{
     vertical-align: middle;  
 }
 </style>

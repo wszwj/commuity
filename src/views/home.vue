@@ -3,7 +3,7 @@
     <!-- 导航 -->
     <nav class="topnav bar bar-nav">
         <div class="logo"><img src="../assets/img/bigLogo.jpg"></div>
-        <div class="head" v-link="{ path: '/about', replace: true}"><img src="../assets/img/bighead.png"><span>·</span></div>
+        <div class="head" v-link="{ path: '/about', replace: true}"><img :src="headimgurl"/><span>·</span></div>
         <div class="rightIcon" v-link="{ path: '/search', replace: true}"><i class="iconfont icon-sou"></i></div>
       <div class="buttons-tab">
         <a href="#tab1" class="tab-link active button">关注</a>
@@ -54,7 +54,7 @@
                 <p class="media-title">{{item.title}}</p>
                 <!-- 展示图 -->
                 <div class="media-show" v-if="item.imgs ? true :false">
-                  <img v-for="img in item.imgs" :src="img.url" alt="{{img.alt}}">
+                  <a v-for="img in item.imgs" @click="imgSkip(item.action)"><img :src="img.url" alt="{{img.alt}}"></a>
                 </div>
                 <v-content :content="item.content"></v-content>
                 <div class="media-text">
@@ -91,6 +91,7 @@ import $ from 'zepto'
 export default {
   data () {
     return {
+      headimgurl: '',
       title: '任务列表',
       types: ['热门分类', '每日分类', '最新分类'],
       isHide: false,
@@ -224,6 +225,10 @@ export default {
   },
   ready: function() {
     // 多图组合
+    this.$http.get('../../../static/data/access_token.json')
+    .then((data) => {
+      this.headimgurl = data.data.headimgurl
+    })
     const list = $('.media-show')
     for (let i = 0; i <= list.length; i ++) {
       const imgUrl = list.eq(i).children('a').children('img')
