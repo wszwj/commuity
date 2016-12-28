@@ -98,6 +98,7 @@ export default {
       url: '/details/answer',
       items: [
         {
+          id: 1,
           name: '时空酸奶',
           action: '关注了问答',
           title: '由各种物质组，成的巨型球状天体。叫做星球',
@@ -110,6 +111,7 @@ export default {
           comment: 123
         },
         {
+          id: 2,
           name: '时空酸奶',
           action: '关注了游戏',
           game: '守望先锋',
@@ -120,98 +122,7 @@ export default {
           comment: 123
         },
         {
-          name: '时空酸奶',
-          action: '赞同了问答',
-          title: '由各种物质组，成的巨型球状天体。叫做星球',
-          content: '由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球。',
-          good: 23,
-          comment: 123
-        },
-        {
-          name: '时空酸奶',
-          action: '关注了问答',
-          title: '由各种物质组，成的巨型球状天体。叫做星球',
-          imgs: [
-            {url: 'static/img/show_1.jpg', alt: 'x'},
-            {url: 'static/img/2.jpg', alt: 'x'},
-            {url: 'static/img/show_1.jpg', alt: 'x'},
-            {url: 'static/img/2.jpg', alt: 'x'}
-          ],
-          good: 23,
-          comment: 123
-        },
-        {
-          name: '时空酸奶',
-          action: '关注了游戏',
-          game: '守望先锋',
-          imgs: [
-            {url: 'static/img/index_show.jpg', alt: 'x'}
-          ],
-          good: 23,
-          comment: 123
-        },
-        {
-          name: '时空酸奶',
-          action: '赞同了问答',
-          title: '由各种物质组，成的巨型球状天体。叫做星球',
-          content: '由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球。',
-          good: 23,
-          comment: 123
-        },
-        {
-          name: '时空酸奶',
-          action: '关注了问答',
-          title: '由各种物质组，成的巨型球状天体。叫做星球',
-          imgs: [
-            {url: 'static/img/show_1.jpg', alt: 'x'},
-            {url: 'static/img/2.jpg', alt: 'x'},
-            {url: 'static/img/show_1.jpg', alt: 'x'},
-            {url: 'static/img/2.jpg', alt: 'x'}
-          ],
-          comment: 123
-        },
-        {
-          name: '时空酸奶',
-          action: '关注了游戏',
-          game: '守望先锋',
-          imgs: [
-            {url: 'static/img/index_show.jpg', alt: 'x'}
-          ],
-          good: 23,
-          comment: 123
-        },
-        {
-          name: '时空酸奶',
-          action: '赞同了问答',
-          title: '由各种物质组，成的巨型球状天体。叫做星球',
-          content: '由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球由各种物质组，成的巨型球状天体。叫做星球。',
-          good: 23,
-          comment: 123
-        },
-        {
-          name: '时空酸奶',
-          action: '关注了问答',
-          title: '由各种物质组，成的巨型球状天体。叫做星球',
-          imgs: [
-            {url: 'static/img/show_1.jpg', alt: 'x'},
-            {url: 'static/img/2.jpg', alt: 'x'},
-            {url: 'static/img/show_1.jpg', alt: 'x'},
-            {url: 'static/img/2.jpg', alt: 'x'}
-          ],
-          good: 23,
-          comment: 123
-        },
-        {
-          name: '时空酸奶',
-          action: '关注了游戏',
-          game: '守望先锋',
-          imgs: [
-            {url: 'static/img/index_show.jpg', alt: 'x'}
-          ],
-          good: 23,
-          comment: 123
-        },
-        {
+          id: 3,
           name: '时空酸奶',
           action: '赞同了问答',
           title: '由各种物质组，成的巨型球状天体。叫做星球',
